@@ -12,7 +12,7 @@ import {
 import {TableHeader} from './TableHeader';
 import {Loader} from '@/components/Loader';
 import PropTypes from 'prop-types';
-import {genericDescendingComparator, sortOrderEnum, theme} from '@/utils/Table.js';
+import {genericDescendingComparator, sortOrderEnum, theme} from '../../../other/utils/Table.js';
 
 export const TableContent = props => {
   const {

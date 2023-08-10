@@ -14,7 +14,7 @@ import {
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
 import {useQuery} from 'react-query';
-import {sortOrderEnum} from '@/utils/Table.js';
+import {sortOrderEnum} from '../../../other/utils/Table.js';
 import {theme} from '@/components/Table/TableContent';
 import {useSearchParams} from 'react-router-dom';
 import qs from 'qs';

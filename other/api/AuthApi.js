@@ -1,4 +1,4 @@
-import axiosInstance from '@/api/apiHelper';
+import axiosInstance from 'other/api/apiHelper.js';
 
 class AuthApi {
   login(data) {

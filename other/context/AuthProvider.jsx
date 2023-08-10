@@ -1,8 +1,8 @@
 import {createContext, useEffect, useState} from 'react';
-import AuthApi from '@/api/AuthApi';
-import {Loader} from '@/components/Loader';
+import AuthApi from 'other/api/AuthApi.js';
+import {Loader} from 'src/components/Loader.jsx';
 import {useQueryClient} from 'react-query';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext({});
 
@@ -65,4 +65,4 @@ export const AuthProvider = ({children}) => {
 
 AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};

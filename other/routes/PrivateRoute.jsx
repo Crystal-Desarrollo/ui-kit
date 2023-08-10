@@ -1,6 +1,6 @@
 import {Navigate, useLocation} from 'react-router-dom';
-import {useAuth} from '@/hooks/useAuth';
-import {hasPermissions} from '@/utils/Auth.js';
+import {useAuth} from 'other/hooks/useAuth.js';
+import {hasPermissions} from 'other/utils/Auth.js';
 import PropTypes from 'prop-types';
 
 export const PrivateRoute = ({has, element}) => {

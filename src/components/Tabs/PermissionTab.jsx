@@ -1,5 +1,5 @@
-import {useAuth} from '@/hooks/useAuth';
-import {hasPermissions} from '@/utils/Auth';
+import {useAuth} from '../../../other/hooks/useAuth';
+import {hasPermissions} from '../../../other/utils/Auth';
 import {Tab} from '@mui/material';
 import PropTypes from 'prop-types';
 
