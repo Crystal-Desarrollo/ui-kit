@@ -1,5 +1,5 @@
 import {Navigate, Outlet, useLocation} from 'react-router-dom';
-import {useAuth} from '@/hooks/useAuth/useAuth.js';
+import {useAuth} from '../../hooks';
 
 export const GuestMiddleware = () => {
   const {user} = useAuth();

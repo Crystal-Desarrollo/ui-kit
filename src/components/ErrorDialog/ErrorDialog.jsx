@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import {Button, Divider, Stack, Typography} from '@mui/material';
-import {Modal} from '@/components/common/Modal/Modal';
-import {Title} from '@/components/common/Title';
+import {Modal} from '../Modal';
 import {Report as ReportIcon} from '@mui/icons-material';
 
 export const ErrorDialog = ({open, onConfirm, children}) => {
@@ -19,9 +18,9 @@ export const ErrorDialog = ({open, onConfirm, children}) => {
         maxWidth: '400px',
       }}
     >
-      <Title variant="h6" mb={1} color="error">
-        <strong>Error</strong>
-      </Title>
+      <Typography fontWeight="bold" variant="h6" mb={1} color="error">
+        Error
+      </Typography>
       <Divider sx={{mb: 2}} />
       <Stack direction="column" mb={2}>
         {children && (

@@ -1,6 +1,6 @@
 import {createContext, useEffect, useState} from 'react';
-import AuthApi from '@/api/AuthApi.js';
-import {Loader} from '@/components/Loader/Loader.jsx';
+import AuthApi from '../../api/AuthApi';
+import {Loader} from '../../components';
 import {useQueryClient} from 'react-query';
 import PropTypes from 'prop-types';
 

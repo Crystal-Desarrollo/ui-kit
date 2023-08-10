@@ -9,10 +9,11 @@ import {
   ThemeProvider,
   Typography,
 } from '@mui/material';
-import {TableHeader} from '@/components';
-import {Loader} from '@/components/Loader/Loader';
+import {TableHeader} from '../TableHeader';
+import {Loader} from '../Loader';
 import PropTypes from 'prop-types';
-import {genericDescendingComparator, sortOrderEnum, theme} from '@/utils/Table/Table.js';
+import {genericDescendingComparator, sortOrderEnum} from '../../utils';
+import {theme} from '../../theme';
 
 export const TableContent = props => {
   const {

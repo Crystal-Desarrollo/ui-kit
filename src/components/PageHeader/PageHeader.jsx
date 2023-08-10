@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import {Title} from '@/components/common/Title';
-import {Stack} from '@mui/material';
+import {Stack, Typography} from '@mui/material';
 
 export const PageHeader = ({title, renderAside}) => {
   return (
@@ -11,7 +10,9 @@ export const PageHeader = ({title, renderAside}) => {
       justifyContent={{sm: 'space-between', xs: 'flex-start'}}
       marginBottom={2}
     >
-      <Title fontSize={24}>{title}</Title>
+      <Typography fontWeight="bold" fontSize={24}>
+        {title}
+      </Typography>
       {renderAside && <Stack mt={{xs: 2, sm: 0}}>{renderAside}</Stack>}
     </Stack>
   );

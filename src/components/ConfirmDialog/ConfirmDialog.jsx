@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Button, Divider, Stack, Typography} from '@mui/material';
-import {Modal} from '@/components/Modal/Modal';
-import {Loader} from '@/components/Loader/Loader';
+import {Modal} from '../Modal';
+import {Loader} from '../Loader';
 import {Report as ReportIcon} from '@mui/icons-material';
 
 export const ConfirmDialog = ({open, title, description, onConfirm, onCancel, isLoading, error, children, sx}) => {

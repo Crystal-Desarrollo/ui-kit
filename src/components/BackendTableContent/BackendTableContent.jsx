@@ -1,6 +1,5 @@
-import EmptyData from '@/assets/img/emptyData.png';
-import {Loader} from '@/components/common/Loader';
-import {TableHeader} from '@/components/Table/TableHeader';
+import {Loader} from '../Loader';
+import {TableHeader} from '../';
 import {
   Table,
   TableBody,
@@ -14,8 +13,8 @@ import {
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
 import {useQuery} from 'react-query';
-import {sortOrderEnum} from '@/utils/Table/Table.js';
-import {theme} from '@/components/TableContent/TableContent';
+import {sortOrderEnum} from '../../utils';
+import {theme} from '../../theme';
 import {useSearchParams} from 'react-router-dom';
 import qs from 'qs';
 
@@ -111,15 +110,6 @@ export const BackendTableContent = props => {
             ) : (
               <TableRow>
                 <TableCell colSpan={headCells.length} align="center">
-                  <img
-                    src={EmptyData}
-                    alt="Imagen no hay datos"
-                    style={{
-                      margin: 'auto',
-                      boxSizing: 'border-box',
-                      width: '200px',
-                    }}
-                  />
                   <Typography variant="h6" sx={{textAlign: 'center'}}>
                     No hay nada por aquí
                   </Typography>
