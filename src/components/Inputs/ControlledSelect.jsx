@@ -59,6 +59,9 @@ ControlledSelect.propTypes = {
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   createOption: PropTypes.func,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  render: PropTypes.func,
 };
 
 ControlledSelect.defaultProps = {

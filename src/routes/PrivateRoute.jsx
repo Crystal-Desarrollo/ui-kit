@@ -1,6 +1,7 @@
 import {Navigate, useLocation} from 'react-router-dom';
 import {useAuth} from '@/hooks/useAuth';
-import {hasPermissions} from '@/context/AuthProvider';
+import {hasPermissions} from '@/utils/Auth.js';
+import PropTypes from 'prop-types';
 
 export const PrivateRoute = ({has, element}) => {
   const {user} = useAuth();
@@ -22,4 +23,9 @@ export const PrivateRoute = ({has, element}) => {
   }
 
   return element;
+};
+
+PrivateRoute.propTypes = {
+  element: PropTypes.node.isRequired,
+  has: PropTypes.object,
 };

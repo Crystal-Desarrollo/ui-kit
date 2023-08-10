@@ -14,7 +14,7 @@ import {
 import PropTypes from 'prop-types';
 import {useEffect, useState} from 'react';
 import {useQuery} from 'react-query';
-import {sortOrderEnum} from '@/utils/Comparator';
+import {sortOrderEnum} from '@/utils/Table.js';
 import {theme} from '@/components/Table/TableContent';
 import {useSearchParams} from 'react-router-dom';
 import qs from 'qs';
@@ -161,4 +161,6 @@ BackendTableContent.propTypes = {
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
   filters: PropTypes.object,
+  Row: PropTypes.elementType.isRequired,
+  Toolbar: PropTypes.elementType,
 };

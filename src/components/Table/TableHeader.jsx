@@ -1,5 +1,6 @@
 import {TableCell, TableHead, TableRow, TableSortLabel} from '@mui/material';
 import {useTheme} from '@mui/material/styles';
+import PropTypes from 'prop-types';
 
 export const TableHeader = props => {
   const theme = useTheme();
@@ -32,4 +33,11 @@ export const TableHeader = props => {
       </TableRow>
     </TableHead>
   );
+};
+
+TableHeader.propTypes = {
+  orderBy: PropTypes.string,
+  orderDirection: PropTypes.string,
+  headCells: PropTypes.array,
+  handleSortRequest: PropTypes.func,
 };

@@ -42,4 +42,5 @@ ControlledSwitch.propTypes = {
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   fullWidth: PropTypes.bool,
+  labelPlacement: PropTypes.string,
 };

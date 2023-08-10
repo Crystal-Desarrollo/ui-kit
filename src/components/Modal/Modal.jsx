@@ -1,7 +1,7 @@
 import {Box as MuiBox, IconButton, Modal as MuiModal} from '@mui/material';
 import PropTypes from 'prop-types';
-import {Box} from '@/components/common/Box';
-import {Loader} from '@/components/common/Loader';
+import {Box} from '@/components/Box.jsx';
+import {Loader} from '@/components/Loader.jsx';
 import CloseIcon from '@mui/icons-material/Close';
 
 export const Modal = ({
@@ -58,4 +58,7 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   style: PropTypes.object,
+  renderBox: PropTypes.bool,
+  disableCloseOnBackdropClick: PropTypes.bool,
+  isLoading: PropTypes.bool,
 };

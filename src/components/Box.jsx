@@ -1,5 +1,5 @@
 import {Paper} from '@mui/material';
-import {Loader} from '@/components/common/Loader';
+import {Loader} from '@/components/Loader.jsx';
 import PropTypes from 'prop-types';
 import {useTheme} from '@mui/material/styles';
 
@@ -36,4 +36,7 @@ Box.propTypes = {
   onSubmit: PropTypes.func,
   isLoading: PropTypes.bool,
   marginBottom: PropTypes.string,
+  marginTop: PropTypes.string,
+  mb: PropTypes.number,
+  mt: PropTypes.number,
 };

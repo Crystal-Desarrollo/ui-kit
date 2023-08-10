@@ -35,4 +35,12 @@ export const TextField = ({
 TextField.propTypes = {
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
+  required: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  disabled: PropTypes.bool,
+  type: PropTypes.string,
+  InputProps: PropTypes.object,
+  InputLabelProps: PropTypes.object,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func.isRequired,
 };

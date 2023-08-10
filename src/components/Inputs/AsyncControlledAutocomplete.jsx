@@ -45,7 +45,7 @@ export const AsyncControlledAutocomplete = props => {
       setData([]);
     }, 500);
     return () => clearTimeout(timer);
-  }, [debouncedTerm]);
+  }, [debouncedTerm, refetch]);
 
   const handleChange = (event, newValue, onChange) => {
     if (newValue && newValue.inputValue) {

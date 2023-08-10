@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
 import {Button, Divider, Stack, Typography} from '@mui/material';
-import {Modal} from '@/components/common/Modal/Modal';
-import {Title} from '@/components/common/Title';
-import {CancelButton} from '@/components/common/Buttons/CancelButton';
-import {Loader} from '@/components/common/Loader';
+import {Modal} from '@/components/Modal/Modal';
+import {Loader} from '@/components/Loader';
 import {Report as ReportIcon} from '@mui/icons-material';
 
-export const Confirm = ({open, title, description, onConfirm, onCancel, isLoading, error, children, sx}) => {
+export const ConfirmDialog = ({open, title, description, onConfirm, onCancel, isLoading, error, children, sx}) => {
   const handleConfirm = () => {
     if (typeof onConfirm === 'function') {
       onConfirm();
@@ -30,9 +28,9 @@ export const Confirm = ({open, title, description, onConfirm, onCancel, isLoadin
       }}
     >
       {isLoading && <Loader />}
-      <Title variant="h6" mb={1}>
+      <Typography fontWeight="bold" variant="h6" mb={1}>
         <strong>{title ?? ''}</strong>
-      </Title>
+      </Typography>
       <Divider sx={{mb: 2}} />
       <Stack mb={1} fontSize={16} textAlign="center">
         {description ?? ''}
@@ -55,9 +53,9 @@ export const Confirm = ({open, title, description, onConfirm, onCancel, isLoadin
           justifyContent: 'end',
         }}
       >
-        <CancelButton onClick={handleCancel} disabled={isLoading}>
+        <Button color="secondary" onClick={handleCancel} disabled={isLoading}>
           Cancelar
-        </CancelButton>
+        </Button>
         <Button onClick={handleConfirm} disabled={isLoading}>
           {error ? 'Reintentar' : 'Confirmar'}
         </Button>
@@ -66,7 +64,7 @@ export const Confirm = ({open, title, description, onConfirm, onCancel, isLoadin
   );
 };
 
-Confirm.propTypes = {
+ConfirmDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   title: PropTypes.string,
   description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -75,4 +73,5 @@ Confirm.propTypes = {
   isLoading: PropTypes.bool,
   error: PropTypes.string,
   children: PropTypes.node,
+  sx: PropTypes.object,
 };

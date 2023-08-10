@@ -1,6 +1,7 @@
 import {Avatar as MuiAvatar} from '@mui/material';
+import PropTypes from 'prop-types';
 
-export const Avatar = ({name, profile_picture, size = 120, sx, ...rest}) => {
+export const Avatar = ({profile_picture, size = 120, sx, ...rest}) => {
   return (
     <MuiAvatar
       src={profile_picture?.url ?? '/default-avatar.png'}
@@ -16,4 +17,12 @@ export const Avatar = ({name, profile_picture, size = 120, sx, ...rest}) => {
       {...rest}
     />
   );
+};
+
+Avatar.propTypes = {
+  profile_picture: PropTypes.shape({
+    url: PropTypes.string,
+  }),
+  size: PropTypes.number,
+  sx: PropTypes.object,
 };

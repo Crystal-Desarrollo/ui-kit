@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {
-  createTheme,
   Table,
   TableBody,
   TableCell,
@@ -10,38 +9,10 @@ import {
   ThemeProvider,
   Typography,
 } from '@mui/material';
-import {esES} from '@mui/material/locale';
 import {TableHeader} from './TableHeader';
 import {Loader} from '@/components/Loader';
 import PropTypes from 'prop-types';
-import {genericDescendingComparator, sortOrderEnum} from '@/utils/Comparator';
-
-export const theme = theme =>
-  createTheme(
-    {
-      ...theme,
-      palette: {
-        ...theme.palette,
-        table: {
-          header: '#e2e2e2',
-          openRow: '#ebf1fa',
-        },
-      },
-      components: {
-        ...theme.components,
-        MuiTableCell: {
-          styleOverrides: {
-            root: {
-              fontSize: '14px',
-              whiteSpace: 'nowrap',
-              padding: '0.5rem 1rem',
-            },
-          },
-        },
-      },
-    },
-    esES
-  );
+import {genericDescendingComparator, sortOrderEnum, theme} from '@/utils/Table.js';
 
 export const TableContent = props => {
   const {
@@ -54,8 +25,8 @@ export const TableContent = props => {
     defaultOrderBy = '',
     customPropertiesComparator = null,
     defaultOrderDirection = sortOrderEnum.ASC,
+    Row,
   } = props;
-  const Row = props.row;
   const [orderDirection, setOrderDirection] = useState(defaultOrderDirection);
   const [orderBy, setOrderBy] = useState(defaultOrderBy);
   const [page, setPage] = useState(0);
@@ -148,4 +119,7 @@ TableContent.propTypes = {
   isLoading: PropTypes.bool,
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
+  defaultOrderBy: PropTypes.string,
+  defaultOrderDirection: PropTypes.string,
+  Row: PropTypes.elementType.isRequired,
 };

@@ -2,7 +2,7 @@ import {Checkbox as MuiCheckbox, FormControl, FormControlLabel} from '@mui/mater
 import {Controller} from 'react-hook-form';
 import PropTypes from 'prop-types';
 
-export const CheckBox = ({control, defaultChecked = false, name, labelText = '', labelPlacement = 'end', ...rest}) => {
+export const ControlledCheckbox = ({control, defaultChecked = false, name, labelText = '', labelPlacement = 'end', ...rest}) => {
   return (
     <FormControl>
       <Controller
@@ -29,10 +29,11 @@ export const CheckBox = ({control, defaultChecked = false, name, labelText = '',
   );
 };
 
-CheckBox.propTypes = {
+ControlledCheckbox.propTypes = {
   control: PropTypes.object.isRequired,
   defaultChecked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   fullWidth: PropTypes.bool,
+  labelPlacement: PropTypes.string,
 };

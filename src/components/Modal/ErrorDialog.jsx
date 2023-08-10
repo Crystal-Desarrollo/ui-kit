@@ -4,7 +4,7 @@ import {Modal} from '@/components/common/Modal/Modal';
 import {Title} from '@/components/common/Title';
 import {Report as ReportIcon} from '@mui/icons-material';
 
-export const ErrorModal = ({open, onConfirm, children}) => {
+export const ErrorDialog = ({open, onConfirm, children}) => {
   const handleConfirm = () => {
     if (typeof onConfirm === 'function') {
       onConfirm();
@@ -40,7 +40,7 @@ export const ErrorModal = ({open, onConfirm, children}) => {
   );
 };
 
-ErrorModal.propTypes = {
+ErrorDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onConfirm: PropTypes.func,
   children: PropTypes.node,

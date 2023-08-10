@@ -3,7 +3,7 @@ import MuiSelect from '@mui/material/Select';
 import PropTypes from 'prop-types';
 import {useId} from 'react';
 
-export function renderItems(data = []) {
+export function RenderItems(data = []) {
   return data.map(item => {
     const name = item.name || item.label || item.code;
     return (
@@ -28,7 +28,7 @@ export const Select = ({
   ...rest
 }) => {
   const labelId = useId();
-  const renderFunction = render || renderItems;
+  const renderFunction = render || RenderItems;
 
   return (
     <FormControl fullWidth={fullWidth}>
@@ -61,6 +61,10 @@ Select.propTypes = {
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   createOption: PropTypes.func,
+  required: PropTypes.bool,
+  render: PropTypes.func,
+  disabled: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 Select.defaultProps = {

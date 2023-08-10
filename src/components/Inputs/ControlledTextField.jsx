@@ -48,4 +48,12 @@ ControlledTextField.propTypes = {
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   ref: PropTypes.object,
+  required: PropTypes.bool,
+  fullWidth: PropTypes.bool,
+  multiline: PropTypes.bool,
+  rows: PropTypes.number,
+  helperText: PropTypes.string,
+  InputProps: PropTypes.object,
+  InputLabelProps: PropTypes.object,
+  parentRef: PropTypes.object,
 };

@@ -2,22 +2,23 @@ import PropTypes from 'prop-types';
 import {format, formatRelative, isDate} from 'date-fns';
 import {es} from 'date-fns/locale';
 
-function DateTime({isoDateTimeString, relative = false}) {
+export const DateTime = ({isoDateTimeString, relative = false, showTime = true}) => {
   const date = isDate(isoDateTimeString) ? isoDateTimeString : new Date(isoDateTimeString);
+  const formatString = showTime ? 'dd/MM/yyyy HH:mm' : 'dd/MM/yyyy';
 
-  if (!relative) return <span>{format(date, 'dd/MM/yyyy HH:mm')}</span>;
+  if (!relative) return <span>{format(date, formatString)}</span>;
 
   return (
     <span>
-      {formatRelative(date, date, {
+      {formatRelative(date, new Date(), {
         locale: es,
       })}
     </span>
   );
-}
+};
 
 DateTime.propTypes = {
   isoDateTimeString: PropTypes.string.isRequired,
+  relative: PropTypes.bool,
+  showTime: PropTypes.bool,
 };
-
-export default DateTime;
