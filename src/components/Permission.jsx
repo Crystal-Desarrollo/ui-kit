@@ -1,5 +1,5 @@
-import {useAuth} from '../../other/hooks/useAuth';
-import {hasPermissions} from '../../other/context/AuthProvider';
+import {useAuth} from '@/hooks/useAuth/useAuth';
+import {hasPermissions} from '@/context/AuthProvider/AuthProvider';
 import PropTypes from 'prop-types';
 
 export const Permission = ({children, fallback, has = {}}) => {

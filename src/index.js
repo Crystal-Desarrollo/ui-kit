@@ -1,5 +1,5 @@
 export * from './components';
-// export * from '../other/hooks';
-// export * from '../other/api';
-// export * from '../other/context';
-// export * from '../other/utils';
+export * from './context';
+export * from './hooks';
+export * from './api';
+export * from './utils';
