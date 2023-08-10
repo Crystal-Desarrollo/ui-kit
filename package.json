@@ -2,10 +2,6 @@
   "name": "@crystal/ui-kit",
   "version": "1.0.0",
   "description": "Package with the UI Kit for the Crystal team projects",
-  "main": "src/index.js",
-  "files": [
-    "src/**/*"
-  ],
   "scripts": {
   },
   "author": "Agustin Zamar",
