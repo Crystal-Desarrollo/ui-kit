@@ -1,7 +1,7 @@
 import {Box as MuiBox, IconButton, Modal as MuiModal} from '@mui/material';
 import PropTypes from 'prop-types';
-import {Box} from '@/components/Box.jsx';
-import {Loader} from '@/components/Loader.jsx';
+import {Box} from '@/components/Box/Box.jsx';
+import {Loader} from '@/components/Loader/Loader.jsx';
 import CloseIcon from '@mui/icons-material/Close';
 
 export const Modal = ({

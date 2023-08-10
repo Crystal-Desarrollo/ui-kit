@@ -1,35 +1,28 @@
-export {Avatar} from './Avatar/Avatar.jsx';
-export {Box} from './Box.jsx';
-export {ComingSoon} from './ComingSoon.jsx';
-export {DateTime} from './DateTime.jsx';
-export {Loader} from './Loader.jsx';
-export {Money} from './Money.jsx';
-export {PageHeader} from './PageHeader.jsx';
-export {Permission} from './Permission.jsx';
+export {Avatar} from './Avatar';
+export {Box} from './Box';
+export {DateTime} from './DateTime';
+export {Loader} from './Loader';
+export {Money} from './Money';
+export {PageHeader} from './PageHeader';
+export {Permission} from './Permission';
 
 // Modals
-export {Modal} from './Modal/Modal.jsx';
-export {ConfirmDialog} from './Modal/ConfirmDialog.jsx';
-export {ErrorDialog} from './Modal/ErrorDialog.jsx';
-
-// Controlled Inputs
-export {AsyncControlledAutocomplete} from './Inputs/AsyncControlledAutocomplete.jsx';
-export {ControlledCheckbox} from './Inputs/ControlledCheckbox.jsx';
-export {ControlledSelect} from './Inputs/ControlledSelect.jsx';
-export {ControlledTextField} from './Inputs/ControlledTextField.jsx';
-export {Select} from './Inputs/Select.jsx';
-export {TextField} from './Inputs/TextField.jsx';
+export {Modal} from './Modal';
+export {ConfirmDialog} from './ConfirmDialog';
+export {ErrorDialog} from './ErrorDialog';
 
 // Inputs
-export {Autocomplete} from './Inputs/Autocomplete.jsx';
-export {AsyncAutocomplete} from './Inputs/AsyncAutocomplete.jsx';
+export {AsyncAutocomplete} from '@/components/AsyncAutocomplete';
+export {Checkbox} from '@/components/Checkbox';
+export {Select} from '@/components/Select';
+export {TextField} from '@/components/TextField';
+export {Switch} from '@/components/Switch';
 
 // Table
-export {BackendTableContent} from './Table/BackendTableContent.jsx';
-export {TableContent} from './Table/TableContent.jsx';
-export {TableHeader} from './Table/TableHeader.jsx';
+export {BackendTableContent} from './BackendTableContent';
+export {TableContent} from './TableContent';
+export {TableHeader} from './TableHeader';
 
 // Tabs
-export {TabPanel} from './Tabs/TabPanel.jsx';
-export {PermissionTab} from './Tabs/PermissionTab.jsx';
-export {useTabs} from './Tabs/useTabs.jsx';
+export {TabPanel} from './TabPanel';
+export {PermissionTab} from './PermissionTab';

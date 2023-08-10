@@ -11,16 +11,7 @@ function renderItems(data = []) {
   ));
 }
 
-export const ControlledSelect = ({
-  control,
-  data,
-  name,
-  labelText = '',
-  required = false,
-  disabled = false,
-  render,
-  ...rest
-}) => {
+export const Select = ({control, data, name, labelText = '', required = false, disabled = false, render, ...rest}) => {
   const labelId = useId();
   const renderFunction = render || renderItems;
 
@@ -53,7 +44,7 @@ export const ControlledSelect = ({
   );
 };
 
-ControlledSelect.propTypes = {
+Select.propTypes = {
   control: PropTypes.object.isRequired,
   data: PropTypes.array,
   name: PropTypes.string.isRequired,
@@ -64,6 +55,6 @@ ControlledSelect.propTypes = {
   render: PropTypes.func,
 };
 
-ControlledSelect.defaultProps = {
+Select.defaultProps = {
   data: [],
 };

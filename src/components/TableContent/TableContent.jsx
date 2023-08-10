@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 import {TableHeader} from '@/components';
-import {Loader} from '@/components/Loader';
+import {Loader} from '@/components/Loader/Loader';
 import PropTypes from 'prop-types';
 import {genericDescendingComparator, sortOrderEnum, theme} from '@/utils/Table/Table.js';
 

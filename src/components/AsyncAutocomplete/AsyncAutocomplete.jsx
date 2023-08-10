@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const filter = createFilterOptions();
 
-export const AsyncControlledAutocomplete = props => {
+export const AsyncAutocomplete = props => {
   const {
     control,
     options = [],
@@ -135,7 +135,7 @@ export const AsyncControlledAutocomplete = props => {
   );
 };
 
-AsyncControlledAutocomplete.propTypes = {
+AsyncAutocomplete.propTypes = {
   control: PropTypes.any,
   options: PropTypes.array,
   labelText: PropTypes.string,

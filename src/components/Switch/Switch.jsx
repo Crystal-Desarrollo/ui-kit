@@ -1,8 +1,8 @@
-import {Checkbox as MuiCheckbox, FormControl, FormControlLabel} from '@mui/material';
+import {FormControl, FormControlLabel, Switch as MuiSwitch} from '@mui/material';
 import {Controller} from 'react-hook-form';
 import PropTypes from 'prop-types';
 
-export const ControlledCheckbox = ({control, defaultChecked = false, name, labelText = '', labelPlacement = 'end', ...rest}) => {
+export const Switch = ({control, defaultChecked = false, name, labelText = '', labelPlacement = 'end', ...rest}) => {
   return (
     <FormControl>
       <Controller
@@ -13,7 +13,7 @@ export const ControlledCheckbox = ({control, defaultChecked = false, name, label
           <FormControlLabel
             labelPlacement={labelPlacement}
             control={
-              <MuiCheckbox
+              <MuiSwitch
                 ref={field.ref}
                 onChange={e => field.onChange(e.target.checked)}
                 checked={!!field.value}
@@ -29,7 +29,7 @@ export const ControlledCheckbox = ({control, defaultChecked = false, name, label
   );
 };
 
-ControlledCheckbox.propTypes = {
+Switch.propTypes = {
   control: PropTypes.object.isRequired,
   defaultChecked: PropTypes.bool,
   name: PropTypes.string.isRequired,
