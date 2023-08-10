@@ -12,11 +12,11 @@ export {ConfirmDialog} from './ConfirmDialog';
 export {ErrorDialog} from './ErrorDialog';
 
 // Inputs
-export {AsyncAutocomplete} from '@/components/AsyncAutocomplete';
-export {Checkbox} from '@/components/Checkbox';
-export {Select} from '@/components/Select';
-export {TextField} from '@/components/TextField';
-export {Switch} from '@/components/Switch';
+export {AsyncAutocomplete} from './AsyncAutocomplete';
+export {Checkbox} from './Checkbox';
+export {Select} from './Select';
+export {TextField} from './TextField';
+export {Switch} from './Switch';
 
 // Table
 export {BackendTableContent} from './BackendTableContent';
