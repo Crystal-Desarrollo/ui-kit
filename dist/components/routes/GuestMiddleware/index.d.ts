@@ -1,1 +1,0 @@
-export { GuestMiddleware } from "./GuestMiddleware";

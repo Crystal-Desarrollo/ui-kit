@@ -29,11 +29,6 @@ export { theme } from './theme';
 export { GuestLayout } from './layouts/Guest';
 export { AuthenticatedLayout } from './layouts/Authenticated';
 
-// Routes
-export { GuestMiddleware } from './components/routes/GuestMiddleware';
-export { Permission } from './components/routes/Permission';
-export { PrivateRoute } from './components/routes/PrivateRoute';
-
 // Utils
 export { hasPermissions } from './utils/Auth';
 export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
