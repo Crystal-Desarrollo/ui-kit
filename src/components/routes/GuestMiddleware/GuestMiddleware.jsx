@@ -1,4 +1,5 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const GuestMiddleware = ({ user }) => {
   const location = useLocation();
@@ -11,7 +12,6 @@ export const GuestMiddleware = ({ user }) => {
   return <Outlet />;
 };
 
-let PropTypes;
 GuestMiddleware.propTypes = {
   user: PropTypes.object,
 };
