@@ -29,3 +29,6 @@ export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
 // Layouts
 export { default as GuestLayout } from './layouts/Guest';
 export { default as AuthenticatedLayout } from './layouts/Authenticated';
+
+// Auth
+export { AuthContext, AuthProvider } from './context/AuthContext';
