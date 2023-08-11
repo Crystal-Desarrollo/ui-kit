@@ -16540,15 +16540,17 @@ class ny {
   }
 }
 const Er = new ny(), Hl = rc({}), oy = ({ children: e }) => {
-  const [t, o] = ct(null), [r, i] = ct(!1), a = localStorage.getItem("app-token"), s = zc();
+  const [t, o] = ct(null), [r, i] = ct(!1), a = zc(), s = localStorage.getItem("app-token");
   Cn(() => {
-    a && (t || (i(!0), u().finally(() => i(!1))));
-  }, [a, t]);
+    s && (t || (i(!0), u().finally(() => i(!1))));
+  }, [t, s]);
   const l = (d) => Er.login(d).then((p) => {
     localStorage.setItem("app-token", p.data.token), o(p.data.user);
-  }), c = () => Er.logout().then(() => {
-    o(null), localStorage.removeItem("app-token"), s.clear();
-  }), u = async () => Er.me().then((d) => {
+  }), c = () => {
+    Er.logout().then(() => {
+      o(null), a.clear(), localStorage.removeItem("app-token");
+    });
+  }, u = async () => Er.me().then((d) => {
     o(d.data.user);
   }).catch(() => {
     o(null), localStorage.removeItem("app-token");

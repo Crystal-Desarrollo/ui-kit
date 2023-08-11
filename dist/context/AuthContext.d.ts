@@ -1,4 +1,5 @@
 export const AuthContext: import("react").Context<{}>;
+export function hasPermissions(user: any, permissionsRequired: any): boolean;
 export function AuthProvider({ children }: {
     children: any;
 }): import("react/jsx-runtime").JSX.Element;

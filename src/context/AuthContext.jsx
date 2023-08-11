@@ -1,16 +1,32 @@
 import { createContext, useEffect, useState } from 'react';
 import AuthApi from '../api/AuthApi';
 import { Loader } from '../components/Loader';
-import PropTypes from 'prop-types';
 import { useQueryClient } from '@tanstack/react-query';
+import PropTypes from 'prop-types';
 
 export const AuthContext = createContext({});
+
+export const hasPermissions = (user, permissionsRequired) => {
+  if (!user) {
+    return false;
+  }
+  const userPermissions = user.permissions;
+
+  for (let key in permissionsRequired) {
+    // If the user doesn't have the permission or the permission is false
+    if (!userPermissions[key] || userPermissions[key] === false) {
+      return false;
+    }
+  }
+
+  return true;
+};
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
-  const token = localStorage.getItem('app-token');
   const queryClient = useQueryClient();
+  const token = localStorage.getItem('app-token');
 
   useEffect(() => {
     if (!token) {
@@ -21,7 +37,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       me().finally(() => setLoading(false));
     }
-  }, [token, user]);
+  }, [user, token]);
 
   const login = data => {
     return AuthApi.login(data).then(res => {
@@ -31,10 +47,10 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
-    return AuthApi.logout().then(() => {
+    AuthApi.logout().then(() => {
       setUser(null);
-      localStorage.removeItem('app-token');
       queryClient.clear();
+      localStorage.removeItem('app-token');
     });
   };
 
