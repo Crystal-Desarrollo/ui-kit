@@ -1,6 +1,5 @@
-export function Sidebar({ user, logout, onToggleDrawer, open }: {
-    user: any;
-    logout: any;
+export function Sidebar({ ItemsList, onToggleDrawer, open }: {
+    ItemsList: any;
     onToggleDrawer: any;
     open: any;
 }): import("react/jsx-runtime").JSX.Element;
@@ -10,6 +9,7 @@ export namespace Sidebar {
         const open: PropTypes.Validator<boolean>;
         const user: PropTypes.Validator<object>;
         const logout: PropTypes.Validator<(...args: any[]) => any>;
+        const ItemsList: PropTypes.Validator<NonNullable<PropTypes.ReactComponentLike>>;
     }
 }
 import PropTypes from "prop-types";
