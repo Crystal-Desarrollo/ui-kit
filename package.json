@@ -10,8 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+    "build-storybook": "storybook build"
   },
   "author": "Agustin Zamar",
   "license": "ISC",
@@ -55,14 +54,22 @@
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.1"
   },
-  "files": ["dist"],
-  "main": "./dist/main.js",
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "@mui/material": "^5.0.0",
+    "@mui/icons-material": "^5.0.0",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "react-query": "^3.0.0"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.cjs"
+      "require": "./dist/index.umd.js"
     }
   }
 }
