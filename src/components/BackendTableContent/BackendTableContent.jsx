@@ -1,5 +1,5 @@
 import {Loader} from '../Loader';
-import {TableHeader} from '../';
+import {TableHeader} from '../TableHeader';
 import {
   Table,
   TableBody,
