@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from 'react';
 import AuthApi from '../api/AuthApi';
 import { Loader } from '../components/Loader';
 import PropTypes from 'prop-types';
+import { useQueryClient } from '@tanstack/react-query';
 
 export const AuthContext = createContext({});
 
@@ -9,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem('app-token');
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     if (!token) {
@@ -32,6 +34,7 @@ export const AuthProvider = ({ children }) => {
     return AuthApi.logout().then(() => {
       setUser(null);
       localStorage.removeItem('app-token');
+      queryClient.clear();
     });
   };
 
