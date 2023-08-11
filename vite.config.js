@@ -26,6 +26,11 @@ export default defineConfig({
         '@mui/material',
         '@mui/icons-material',
         'react-hook-form',
+        '@tanstack/react-query',
+        'react-router-dom',
+        'qs',
+        'date-fns',
+        'axios',
       ],
       output: {
         globals: {
@@ -36,6 +41,11 @@ export default defineConfig({
           '@mui/material': 'MaterialUI',
           '@mui/icons-material': 'MaterialUIIcons',
           'react-hook-form': 'ReactHookForm',
+          '@tanstack/react-query': 'ReactQuery',
+          'react-router-dom': 'ReactRouterDOM',
+          qs: 'qs',
+          'date-fns': 'dateFns',
+          axios: 'axios',
         },
       },
     },
