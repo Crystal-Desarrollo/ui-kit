@@ -26,8 +26,8 @@ export { useTabs } from './hooks/useTabs';
 export { theme } from './theme';
 
 // Layouts
-export { default as GuestLayout } from './layouts/Guest';
-export { default as AuthenticatedLayout } from './layouts/Authenticated';
+export { GuestLayout } from './layouts/Guest';
+export { AuthenticatedLayout } from './layouts/Authenticated';
 
 // Routes
 export { GuestMiddleware } from './components/routes/GuestMiddleware';

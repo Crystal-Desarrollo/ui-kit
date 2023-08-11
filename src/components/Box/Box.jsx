@@ -42,7 +42,7 @@ Box.propTypes = {
   children: PropTypes.node,
   style: PropTypes.object,
   sx: PropTypes.object,
-  component: PropTypes.oneOfType([PropTypes.elementType, null]),
+  component: PropTypes.elementType,
   onSubmit: PropTypes.func,
   isLoading: PropTypes.bool,
   marginBottom: PropTypes.string,

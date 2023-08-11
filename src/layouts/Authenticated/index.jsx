@@ -6,12 +6,10 @@ import { Box, Container, Toolbar } from '@mui/material';
 import { Loader } from '../../components/Loader';
 import PropTypes from 'prop-types';
 
-export default function AuthenticatedLayout({ logout, user }) {
+export function AuthenticatedLayout({ logout, user }) {
   const [open, setOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  const toggleDrawer = () => setOpen(!open);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -21,7 +19,12 @@ export default function AuthenticatedLayout({ logout, user }) {
         open={open}
         onToggleDrawer={toggleDrawer}
       />
-      <Sidebar user={user} open={open} onToggleDrawer={toggleDrawer} />
+      <Sidebar
+        user={user}
+        logout={logout}
+        open={open}
+        onToggleDrawer={toggleDrawer}
+      />
 
       <Box
         component="main"

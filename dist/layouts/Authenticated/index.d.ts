@@ -1,12 +1,11 @@
-declare function AuthenticatedLayout({ logout, user }: {
+export function AuthenticatedLayout({ logout, user }: {
     logout: any;
     user: any;
 }): import("react/jsx-runtime").JSX.Element;
-declare namespace AuthenticatedLayout {
+export namespace AuthenticatedLayout {
     namespace propTypes {
         const logout: PropTypes.Validator<(...args: any[]) => any>;
         const user: PropTypes.Validator<object>;
     }
 }
-export default AuthenticatedLayout;
 import PropTypes from "prop-types";

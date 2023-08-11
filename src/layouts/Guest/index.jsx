@@ -1,20 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { createTheme, Paper, Stack, ThemeProvider } from '@mui/material';
+import { Paper, Stack, ThemeProvider } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { Copyright } from '../../components/Copyright';
+import { theme } from '../../theme';
 
-const theme = theme =>
-  createTheme({
-    ...theme,
-    palette: {
-      ...theme.palette,
-      primary: {
-        main: '#6D4F8C',
-      },
-    },
-  });
-
-export default function GuestLayout() {
+export function GuestLayout() {
   return (
     <ThemeProvider theme={theme}>
       <Grid container height="100dvh" sx={{}}>

@@ -11,6 +11,6 @@ export const Permission = ({ user, children, fallback, has = {} }) => {
 
 Permission.propTypes = {
   children: PropTypes.node.isRequired,
-  fallback: PropTypes.oneOfType([PropTypes.node, null]),
+  fallback: PropTypes.elementType,
   has: PropTypes.object,
 };
