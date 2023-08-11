@@ -17199,15 +17199,7 @@ tO.propTypes = {
   fullWidth: o.bool,
   labelPlacement: o.string
 };
-const Vw = (e, t) => {
-  if (!e)
-    return !1;
-  const n = e.permissions;
-  for (let r in t)
-    if (!n[r] || n[r] === !1)
-      return !1;
-  return !0;
-}, Ot = {
+const Ot = {
   ASC: "asc",
   DESC: "desc"
 };
@@ -19333,7 +19325,7 @@ _w.propTypes = {
   value: o.any,
   children: o.node
 };
-function zw() {
+function Vw() {
   const [e, t] = Bu();
   return {
     tab: Number(e.get("tab")) || 1,
@@ -19362,8 +19354,7 @@ export {
   Yi as TableHeader,
   eO as TextField,
   nO as genericDescendingComparator,
-  Vw as hasPermissions,
   Ot as sortOrderEnum,
   Pu as theme,
-  zw as useTabs
+  Vw as useTabs
 };
