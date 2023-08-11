@@ -4,7 +4,6 @@ export {DateTime} from './DateTime';
 export {Loader} from './Loader';
 export {Money} from './Money';
 export {PageHeader} from './PageHeader';
-export {Permission} from './Permission';
 
 // Modals
 export {Modal} from './Modal';
@@ -25,4 +24,3 @@ export {TableHeader} from './TableHeader';
 
 // Tabs
 export {TabPanel} from './TabPanel';
-export {PermissionTab} from './PermissionTab';
