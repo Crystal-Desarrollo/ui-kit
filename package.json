@@ -59,7 +59,7 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.cjs",
+  "main": "./dist/my-lib.umd.js",
   "module": "./dist/my-lib.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
