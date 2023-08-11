@@ -13,8 +13,8 @@ import {
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { sortOrderEnum } from '../../../utils';
-import { theme } from '../../../theme';
+import { sortOrderEnum } from '../../utils/Table';
+import { theme } from '../../theme';
 import { useSearchParams } from 'react-router-dom';
 import qs from 'qs';
 

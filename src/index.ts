@@ -1,3 +1,4 @@
+// Components
 export { ConfirmDialog } from './components/ConfirmDialog';
 export { Avatar } from './components/Avatar';
 export { TabPanel } from './components/TabPanel';
@@ -19,3 +20,7 @@ export { AsyncAutocomplete } from './components/AsyncAutocomplete';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
+
+// Theme
+export { theme } from './theme';
+export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
