@@ -13,8 +13,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
-      name: '@crystal/ui-kit', // Replace with the name you want for your library
-      formats: ['es', 'umd'],
+      name: 'CrystalUIKit',
+      formats: ['es', 'umd', 'cjs'],
       fileName: format => `index.${format}.js`,
     },
     rollupOptions: {

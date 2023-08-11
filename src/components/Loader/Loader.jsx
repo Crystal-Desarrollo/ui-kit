@@ -1,6 +1,6 @@
 import {CircularProgress} from '@mui/material';
 
-const Loader = () => {
+export const Loader = () => {
   return (
     <div
       style={{
@@ -21,5 +21,3 @@ const Loader = () => {
     </div>
   );
 };
-
-export default Loader;
