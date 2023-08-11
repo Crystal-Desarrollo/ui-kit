@@ -17,6 +17,7 @@ export { Checkbox } from './components/Inputs/Checkbox';
 export { Box } from './components/Box';
 export { BackendTableContent } from './components/Table/BackendTableContent';
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
+export { PermissionTab } from './components/Tabs/PermissionTab';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
@@ -32,3 +33,9 @@ export { default as AuthenticatedLayout } from './layouts/Authenticated';
 
 // Auth
 export { AuthContext, AuthProvider } from './context/AuthContext';
+export { hasPermissions } from './utils/Auth';
+
+//Routes
+export { GuestMiddleware } from './components/routes/GuestMiddleware';
+export { Permission } from './components/routes/Permission';
+export { PrivateRoute } from './components/routes/PrivateRoute';

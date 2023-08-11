@@ -1,0 +1,1 @@
+export { hasPermissions } from './Auth';

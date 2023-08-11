@@ -1,0 +1,1 @@
+export { PermissionTab } from './PermissionTab';
