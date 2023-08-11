@@ -21,7 +21,6 @@ export { PermissionTab } from './components/Tabs/PermissionTab';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
-export { useAuth } from './hooks/useAuth';
 
 // Theme
 export { theme } from './theme';
@@ -29,9 +28,6 @@ export { theme } from './theme';
 // Layouts
 export { default as GuestLayout } from './layouts/Guest';
 export { default as AuthenticatedLayout } from './layouts/Authenticated';
-
-// Auth
-export { AuthContext, AuthProvider } from './context/AuthContext';
 
 // Routes
 export { GuestMiddleware } from './components/routes/GuestMiddleware';
@@ -42,3 +38,7 @@ export { PrivateRoute } from './components/routes/PrivateRoute';
 export { hasPermissions } from './utils/Auth';
 export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
 export { parseBackendErrors } from './utils/Validations';
+
+// Api
+export { default as AuthApi } from './api/AuthApi';
+export { default as axiosInstance } from './api/apiHelper';

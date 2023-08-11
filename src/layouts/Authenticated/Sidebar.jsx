@@ -22,9 +22,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Avatar } from '../../components/Avatar';
 import PropTypes from 'prop-types';
-import { useAuth } from '../../hooks/useAuth';
 
-export const Sidebar = ({ onToggleDrawer, open }) => {
+export const Sidebar = ({ user, logout, onToggleDrawer, open }) => {
   const location = useLocation();
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
 
@@ -33,13 +32,13 @@ export const Sidebar = ({ onToggleDrawer, open }) => {
     if (open && isMobile) {
       onToggleDrawer(false);
     }
-  }, [location]);
+  }, [location, isMobile, onToggleDrawer, open]);
 
   if (isMobile) {
     return (
       <MobileDrawer open={open} onToggleDrawer={onToggleDrawer}>
         <Toolbar />
-        <ListItems />
+        <ListItems user={user} logout={logout} />
       </MobileDrawer>
     );
   }
@@ -47,7 +46,7 @@ export const Sidebar = ({ onToggleDrawer, open }) => {
   return (
     <DesktopDrawer variant="permanent" open={open}>
       <Toolbar />
-      <ListItems />
+      <ListItems user={user} logout={logout} />
     </DesktopDrawer>
   );
 };
@@ -55,6 +54,8 @@ export const Sidebar = ({ onToggleDrawer, open }) => {
 Sidebar.propTypes = {
   onToggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  user: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
 const DesktopDrawer = styled(Drawer, {
@@ -115,8 +116,7 @@ const MobileDrawer = ({ onToggleDrawer, open }) => {
   );
 };
 
-const ListItems = () => {
-  const { user } = useAuth();
+const ListItems = ({ user, logout }) => {
   return (
     <List
       component="nav"
@@ -191,7 +191,7 @@ const ListItems = () => {
             <IconButton color="primary">
               <NotificationsIcon />
             </IconButton>
-            <IconButton color="primary">
+            <IconButton color="primary" onClick={logout}>
               <Logout />
             </IconButton>
           </Stack>
@@ -214,4 +214,9 @@ const ListItems = () => {
 MobileDrawer.propTypes = {
   onToggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+};
+
+ListItems.propTypes = {
+  user: PropTypes.object,
+  logout: PropTypes.func,
 };

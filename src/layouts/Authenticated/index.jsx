@@ -4,8 +4,9 @@ import { Sidebar } from './Sidebar';
 import { Header } from './Header';
 import { Box, Container, Toolbar } from '@mui/material';
 import { Loader } from '../../components/Loader';
+import PropTypes from 'prop-types';
 
-export default function AuthenticatedLayout() {
+export default function AuthenticatedLayout({ logout, user }) {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => {
@@ -14,8 +15,13 @@ export default function AuthenticatedLayout() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <Header open={open} onToggleDrawer={toggleDrawer} />
-      <Sidebar open={open} onToggleDrawer={toggleDrawer} />
+      <Header
+        logout={logout}
+        user={user}
+        open={open}
+        onToggleDrawer={toggleDrawer}
+      />
+      <Sidebar user={user} open={open} onToggleDrawer={toggleDrawer} />
 
       <Box
         component="main"
@@ -48,3 +54,8 @@ export default function AuthenticatedLayout() {
     </Box>
   );
 }
+
+AuthenticatedLayout.propTypes = {
+  logout: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+};

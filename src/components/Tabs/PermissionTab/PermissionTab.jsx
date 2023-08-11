@@ -1,11 +1,8 @@
-import { useAuth } from '../../../hooks/useAuth';
 import { hasPermissions } from '../../../utils/Auth';
 import { Tab } from '@mui/material';
 import PropTypes from 'prop-types';
 
-export const PermissionTab = ({ has, ...props }) => {
-  const { user } = useAuth();
-
+export const PermissionTab = ({ user, has, ...props }) => {
   if (!hasPermissions(user, has)) return null;
 
   return <Tab {...props} />;
@@ -13,4 +10,5 @@ export const PermissionTab = ({ has, ...props }) => {
 
 PermissionTab.propTypes = {
   has: PropTypes.object,
+  user: PropTypes.object,
 };

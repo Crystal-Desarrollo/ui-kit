@@ -1,4 +1,5 @@
-export function Permission({ children, fallback, has }: {
+export function Permission({ user, children, fallback, has }: {
+    user: any;
     children: any;
     fallback: any;
     has?: {} | undefined;
@@ -6,7 +7,7 @@ export function Permission({ children, fallback, has }: {
 export namespace Permission {
     namespace propTypes {
         const children: PropTypes.Validator<NonNullable<PropTypes.ReactNodeLike>>;
-        const fallback: PropTypes.Requireable<PropTypes.ReactNodeLike>;
+        const fallback: PropTypes.Requireable<any>;
         const has: PropTypes.Requireable<object>;
     }
 }
