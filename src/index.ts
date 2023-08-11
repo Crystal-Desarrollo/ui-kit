@@ -20,7 +20,12 @@ export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
+export { useAuth } from './hooks/useAuth';
 
 // Theme
 export { theme } from './theme';
 export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
+
+// Layouts
+export { default as GuestLayout } from './layouts/Guest';
+export { default as AuthenticatedLayout } from './layouts/Authenticated';

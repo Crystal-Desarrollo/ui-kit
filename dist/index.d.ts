@@ -17,5 +17,8 @@ export { Box } from './components/Box';
 export { BackendTableContent } from './components/Table/BackendTableContent';
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { useTabs } from './hooks/useTabs';
+export { useAuth } from './hooks/useAuth';
 export { theme } from './theme';
 export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
+export { default as GuestLayout } from './layouts/Guest';
+export { default as AuthenticatedLayout } from './layouts/Authenticated';
