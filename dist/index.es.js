@@ -4177,9 +4177,9 @@ const qs = as({
       contrastText: "#ffffff"
     },
     primary: {
-      main: "#004e7b",
-      light: "#0268a2",
-      dark: "#002f4a",
+      main: "#6D4F8C",
+      light: "#A887CC",
+      dark: "#4D3762",
       contrastText: "#ffffff"
     },
     secondary: {
