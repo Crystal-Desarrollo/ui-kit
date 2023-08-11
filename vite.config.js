@@ -61,7 +61,7 @@ const App = async () => {
         entry: path.resolve(__dirname, 'src/index.js'),
         name,
         formats: ['es', 'umd'],
-        fileName: format => `lib.${format}.js`,
+        fileName: format => `${name}.${format}.js`,
       },
       rollupOptions: {
         external: [
