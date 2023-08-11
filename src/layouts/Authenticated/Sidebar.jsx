@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export const Sidebar = ({ ItemsList, onToggleDrawer, open }) => {
+export const Sidebar = ({ children, onToggleDrawer, open }) => {
   const location = useLocation();
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'));
 
@@ -19,7 +19,7 @@ export const Sidebar = ({ ItemsList, onToggleDrawer, open }) => {
     return (
       <MobileDrawer open={open} onToggleDrawer={onToggleDrawer}>
         <Toolbar />
-        <ItemsList />
+        {children}
       </MobileDrawer>
     );
   }
@@ -27,7 +27,7 @@ export const Sidebar = ({ ItemsList, onToggleDrawer, open }) => {
   return (
     <DesktopDrawer variant="permanent" open={open}>
       <Toolbar />
-      <ItemsList />
+      {children}
     </DesktopDrawer>
   );
 };
@@ -35,7 +35,7 @@ export const Sidebar = ({ ItemsList, onToggleDrawer, open }) => {
 Sidebar.propTypes = {
   onToggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  ItemsList: PropTypes.elementType.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 const DesktopDrawer = styled(Drawer, {

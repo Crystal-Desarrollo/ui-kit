@@ -17615,22 +17615,22 @@ function i0() {
     )
   ] }) });
 }
-const Kl = ({ ItemsList: e, onToggleDrawer: t, open: o }) => {
+const Kl = ({ children: e, onToggleDrawer: t, open: o }) => {
   const r = Mc(), i = vc((a) => a.breakpoints.down("md"));
   return rn(() => {
     o && i && t(!1);
   }, [r, i, t, o]), i ? /* @__PURE__ */ me(Xl, { open: o, onToggleDrawer: t, children: [
     /* @__PURE__ */ E(Ao, {}),
-    /* @__PURE__ */ E(e, {})
+    e
   ] }) : /* @__PURE__ */ me(Gl, { variant: "permanent", open: o, children: [
     /* @__PURE__ */ E(Ao, {}),
-    /* @__PURE__ */ E(e, {})
+    e
   ] });
 };
 Kl.propTypes = {
   onToggleDrawer: n.func.isRequired,
   open: n.bool.isRequired,
-  ItemsList: n.elementType.isRequired
+  children: n.node.isRequired
 };
 const Gl = fe(ls, {
   shouldForwardProp: (e) => e !== "open"
@@ -17929,14 +17929,7 @@ function Uy({ ItemsList: e, logout: t, user: o }) {
         onToggleDrawer: a
       }
     ),
-    /* @__PURE__ */ E(
-      Kl,
-      {
-        open: r,
-        onToggleDrawer: a,
-        ItemsList: e
-      }
-    ),
+    /* @__PURE__ */ E(Kl, { open: r, onToggleDrawer: a, children: /* @__PURE__ */ E(e, {}) }),
     /* @__PURE__ */ me(
       Pr,
       {
