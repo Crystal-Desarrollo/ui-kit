@@ -1,35 +1,27 @@
 import { Paper } from '@mui/material';
 import { Loader } from '../Loader';
 import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
 
 const Box = ({
   children,
   style,
   sx,
   component,
-  onSubmit,
-  mb,
-  mt,
+  noSpacing = false,
   isLoading = false,
   ...rest
 }) => {
-  const theme = useTheme();
-
   return (
     <Paper
       sx={{
         position: 'relative',
-        padding: '1rem',
-        marginBottom: mb ? theme.spacing(mb) : 0,
-        marginTop: mt ? theme.spacing(mt) : 0,
+        padding: !noSpacing ? '1rem' : 0,
         minHeight: isLoading ? '100px' : 'auto',
         borderRadius: '8px',
         ...style,
         ...sx,
       }}
       component={component}
-      onSubmit={onSubmit}
       {...rest}
     >
       {isLoading && <Loader />}
@@ -39,16 +31,12 @@ const Box = ({
 };
 
 Box.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   style: PropTypes.object,
   sx: PropTypes.object,
   component: PropTypes.string,
-  onSubmit: PropTypes.func,
+  noSpacing: PropTypes.bool,
   isLoading: PropTypes.bool,
-  marginBottom: PropTypes.string,
-  marginTop: PropTypes.string,
-  mb: PropTypes.number,
-  mt: PropTypes.number,
 };
 
 export default Box;
