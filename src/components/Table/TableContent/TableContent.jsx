@@ -10,10 +10,13 @@ import {
   Typography,
 } from '@mui/material';
 import { TableHeader } from '../TableHeader';
-import { Loader } from '../Loader';
+import { Loader } from '../../Loader';
 import PropTypes from 'prop-types';
-import { genericDescendingComparator, sortOrderEnum } from '../../utils/Table';
-import { theme } from '../../theme';
+import {
+  genericDescendingComparator,
+  sortOrderEnum,
+} from '../../../utils/Table';
+import { theme } from '../../../theme';
 
 const TableContent = props => {
   const {

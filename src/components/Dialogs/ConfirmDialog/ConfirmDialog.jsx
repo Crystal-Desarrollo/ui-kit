@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button, Divider, Stack, Typography } from '@mui/material';
 import { Modal } from '../Modal';
-import { Loader } from '../Loader';
+import { Loader } from '../../Loader';
 import { Report as ReportIcon } from '@mui/icons-material';
 
 const ConfirmDialog = ({

@@ -1,22 +1,22 @@
 // Components
-export { ConfirmDialog } from './components/ConfirmDialog';
+export { ConfirmDialog } from './components/Dialogs/ConfirmDialog';
 export { Avatar } from './components/Avatar';
-export { TabPanel } from './components/TabPanel';
-export { TableHeader } from './components/TableHeader';
-export { Switch } from './components/Switch';
-export { TextField } from './components/TextField';
+export { TabPanel } from './components/Tabs/TabPanel';
+export { TableHeader } from './components/Table/TableHeader';
+export { Switch } from './components/Inputs/Switch';
+export { TextField } from './components/Inputs/TextField';
 export { Loader } from './components/Loader';
-export { ErrorDialog } from './components/ErrorDialog';
-export { Modal } from './components/Modal';
+export { ErrorDialog } from './components/Dialogs/ErrorDialog';
+export { Modal } from './components/Dialogs/Modal';
 export { Money } from './components/Money';
 export { PageHeader } from './components/PageHeader';
-export { Select } from './components/Select';
-export { TableContent } from './components/TableContent';
+export { Select } from './components/Inputs/Select';
+export { TableContent } from './components/Table/TableContent';
 export { DateTime } from './components/DateTime';
-export { Checkbox } from './components/Checkbox';
+export { Checkbox } from './components/Inputs/Checkbox';
 export { Box } from './components/Box';
-export { BackendTableContent } from './components/BackendTableContent';
-export { AsyncAutocomplete } from './components/AsyncAutocomplete';
+export { BackendTableContent } from './components/Table/BackendTableContent';
+export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
