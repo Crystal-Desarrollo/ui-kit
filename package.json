@@ -52,18 +52,19 @@
     "prop-types": "^15.8.1",
     "react-dom": "^18.2.0",
     "storybook": "^7.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.1"
   },
   "files": [
     "dist"
   ],
-  "main": "./dist/@crystal/ui-kit.umd.js",
-  "module": "./dist/@crystal/ui-kit.es.js",
+  "main": "./dist/ui-kit.umd.cjs",
+  "module": "./dist/ui-kit.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/@crystal/ui-kit.es.js",
-      "require": "./dist/@crystal/ui-kit.umd.js"
+      "import": "./dist/ui-kit.es.js",
+      "require": "./dist/ui-kit.umd.cjs"
     }
   }
 }

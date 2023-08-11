@@ -1,15 +1,21 @@
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
 import {defineConfig} from 'vite';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
-      name: '@crystal/ui-kit',
+      name: 'ui-kit',
       formats: ['es', 'umd'],
-      fileName: format => `@crystal/ui-kit.${format}.js`,
+      fileName: format => `ui-kit.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom', '@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
