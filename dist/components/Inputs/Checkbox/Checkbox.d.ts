@@ -8,7 +8,6 @@ declare function Checkbox({ defaultChecked, name, labelText, labelPlacement, ...
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Checkbox {
     namespace propTypes {
-        const control: PropTypes.Validator<object>;
         const defaultChecked: PropTypes.Requireable<boolean>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;

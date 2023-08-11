@@ -8,7 +8,6 @@ declare function Switch({ defaultChecked, name, labelText, labelPlacement, ...re
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Switch {
     namespace propTypes {
-        const control: PropTypes.Validator<object>;
         const defaultChecked: PropTypes.Requireable<boolean>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;

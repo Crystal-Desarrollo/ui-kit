@@ -59,7 +59,6 @@ const Select = ({
 };
 
 Select.propTypes = {
-  control: PropTypes.object.isRequired,
   data: PropTypes.array,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,

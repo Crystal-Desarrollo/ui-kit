@@ -3973,7 +3973,6 @@ const jp = ({
   ) });
 };
 jp.propTypes = {
-  control: n.object.isRequired,
   defaultChecked: n.bool,
   name: n.string.isRequired,
   labelText: n.string,
@@ -4021,7 +4020,6 @@ const Fp = ({
   ) });
 };
 Fp.propTypes = {
-  control: n.object.isRequired,
   name: n.string.isRequired,
   labelText: n.string,
   ref: n.object,
@@ -4131,7 +4129,6 @@ const Us = ({
   ] });
 };
 Us.propTypes = {
-  control: n.object.isRequired,
   data: n.array,
   name: n.string.isRequired,
   labelText: n.string,
@@ -4876,7 +4873,6 @@ const Nf = ({
   ) });
 };
 Nf.propTypes = {
-  control: n.object.isRequired,
   defaultChecked: n.bool,
   name: n.string.isRequired,
   labelText: n.string,
@@ -16503,7 +16499,6 @@ const Zv = ql, ey = il(), ty = (e) => {
   ) });
 };
 ty.propTypes = {
-  control: n.any,
   options: n.array,
   labelText: n.string,
   name: n.string,

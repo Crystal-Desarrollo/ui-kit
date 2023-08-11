@@ -2,7 +2,6 @@ export default AsyncAutocomplete;
 declare function AsyncAutocomplete(props: any): import("react/jsx-runtime").JSX.Element;
 declare namespace AsyncAutocomplete {
     namespace propTypes {
-        const control: PropTypes.Requireable<any>;
         const options: PropTypes.Requireable<any[]>;
         const labelText: PropTypes.Requireable<string>;
         const name: PropTypes.Requireable<string>;

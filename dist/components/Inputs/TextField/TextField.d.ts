@@ -14,7 +14,6 @@ declare function TextField({ name, labelText, required, fullWidth, InputProps, I
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace TextField {
     namespace propTypes {
-        const control: PropTypes.Validator<object>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;
         const ref: PropTypes.Requireable<object>;

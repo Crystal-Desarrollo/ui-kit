@@ -10,7 +10,6 @@ declare function Select({ data, name, labelText, required, disabled, render, ...
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Select {
     namespace propTypes {
-        const control: PropTypes.Validator<object>;
         const data: PropTypes.Requireable<any[]>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;

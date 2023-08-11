@@ -152,7 +152,6 @@ const AsyncAutocomplete = props => {
 };
 
 AsyncAutocomplete.propTypes = {
-  control: PropTypes.any,
   options: PropTypes.array,
   labelText: PropTypes.string,
   name: PropTypes.string,

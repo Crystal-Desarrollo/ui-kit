@@ -42,7 +42,6 @@ const Switch = ({
 };
 
 Switch.propTypes = {
-  control: PropTypes.object.isRequired,
   defaultChecked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,

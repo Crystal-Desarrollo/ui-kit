@@ -45,7 +45,6 @@ const TextField = ({
 };
 
 TextField.propTypes = {
-  control: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   ref: PropTypes.object,
