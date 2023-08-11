@@ -17665,25 +17665,25 @@ const Gl = fe(ls, {
 Gl.propTypes = {
   open: n.bool.isRequired
 };
-const Xl = ({ onToggleDrawer: e, open: t }) => /* @__PURE__ */ E(
+const Xl = ({ onToggleDrawer: e, open: t, children: o }) => /* @__PURE__ */ E(
   ls,
   {
     variant: "temporary",
     anchor: "left",
     open: t,
     onClose: () => e(!1),
-    sx: (o) => ({
+    sx: (r) => ({
       ".MuiDrawer-paper": {
         width: "50%",
-        [o.breakpoints.down("sm")]: {
+        [r.breakpoints.down("sm")]: {
           width: "100%"
         }
       },
-      [o.breakpoints.up("md")]: {
+      [r.breakpoints.up("md")]: {
         display: "none"
       }
     }),
-    children
+    children: o
   }
 );
 Xl.propTypes = {

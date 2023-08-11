@@ -73,7 +73,7 @@ DesktopDrawer.propTypes = {
   open: PropTypes.bool.isRequired,
 };
 
-const MobileDrawer = ({ onToggleDrawer, open }) => {
+const MobileDrawer = ({ onToggleDrawer, open, children }) => {
   return (
     <Drawer
       variant="temporary"
