@@ -4,7 +4,7 @@ import {
   MenuItem,
   Select as MuiSelect,
 } from '@mui/material';
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import { useId } from 'react';
 import PropTypes from 'prop-types';
 
@@ -17,7 +17,6 @@ function renderItems(data = []) {
 }
 
 const Select = ({
-  control,
   data,
   name,
   labelText = '',
@@ -28,6 +27,7 @@ const Select = ({
 }) => {
   const labelId = useId();
   const renderFunction = render || renderItems;
+  const { control } = useFormContext();
 
   return (
     <FormControl fullWidth>

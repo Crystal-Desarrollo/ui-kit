@@ -1,7 +1,6 @@
 export default Checkbox;
-declare function Checkbox({ control, defaultChecked, name, labelText, labelPlacement, ...rest }: {
+declare function Checkbox({ defaultChecked, name, labelText, labelPlacement, ...rest }: {
     [x: string]: any;
-    control: any;
     defaultChecked?: boolean | undefined;
     name: any;
     labelText?: string | undefined;

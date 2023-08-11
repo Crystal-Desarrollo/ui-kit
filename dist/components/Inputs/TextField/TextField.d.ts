@@ -1,7 +1,6 @@
 export default TextField;
-declare function TextField({ control, name, labelText, required, fullWidth, InputProps, InputLabelProps, parentRef, multiline, rows, helperText, ...rest }: {
+declare function TextField({ name, labelText, required, fullWidth, InputProps, InputLabelProps, parentRef, multiline, rows, helperText, ...rest }: {
     [x: string]: any;
-    control: any;
     name: any;
     labelText?: string | undefined;
     required: any;

@@ -1,9 +1,8 @@
 import { FormControl, TextField as MuiTextField } from '@mui/material';
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
 const TextField = ({
-  control,
   name,
   labelText = '',
   required,
@@ -16,6 +15,8 @@ const TextField = ({
   helperText,
   ...rest
 }) => {
+  const { control } = useFormContext();
+
   return (
     <FormControl fullWidth={fullWidth} {...rest}>
       <Controller

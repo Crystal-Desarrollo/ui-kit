@@ -3,7 +3,7 @@ import MuiAutocomplete, {
   createFilterOptions,
 } from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
@@ -12,7 +12,6 @@ const filter = createFilterOptions();
 
 const AsyncAutocomplete = props => {
   const {
-    control,
     options = [],
     labelText,
     name,
@@ -22,6 +21,7 @@ const AsyncAutocomplete = props => {
     renderLabel,
     fetchFunction,
   } = props;
+  const { control } = useFormContext();
   const [data, setData] = useState(options);
   const [debouncedTerm, setDebouncedTerm] = useState('');
 

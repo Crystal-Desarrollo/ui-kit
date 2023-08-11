@@ -3,17 +3,18 @@ import {
   FormControlLabel,
   Switch as MuiSwitch,
 } from '@mui/material';
-import { Controller } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
 const Switch = ({
-  control,
   defaultChecked = false,
   name,
   labelText = '',
   labelPlacement = 'end',
   ...rest
 }) => {
+  const { control } = useFormContext();
+
   return (
     <FormControl>
       <Controller

@@ -1,7 +1,6 @@
 export default Switch;
-declare function Switch({ control, defaultChecked, name, labelText, labelPlacement, ...rest }: {
+declare function Switch({ defaultChecked, name, labelText, labelPlacement, ...rest }: {
     [x: string]: any;
-    control: any;
     defaultChecked?: boolean | undefined;
     name: any;
     labelText?: string | undefined;

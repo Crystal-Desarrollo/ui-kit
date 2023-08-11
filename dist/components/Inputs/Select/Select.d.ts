@@ -1,7 +1,6 @@
 export default Select;
-declare function Select({ control, data, name, labelText, required, disabled, render, ...rest }: {
+declare function Select({ data, name, labelText, required, disabled, render, ...rest }: {
     [x: string]: any;
-    control: any;
     data: any;
     name: any;
     labelText?: string | undefined;
