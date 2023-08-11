@@ -27,3 +27,5 @@ export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
 export { parseBackendErrors } from './utils/Validations';
 export { default as AuthApi } from './api/AuthApi';
 export { default as axiosInstance } from './api/apiHelper';
+export { Page404 } from './pages/Error/404';
+export { Page401 } from './pages/Error/401';

@@ -38,3 +38,7 @@ export { parseBackendErrors } from './utils/Validations';
 // Api
 export { default as AuthApi } from './api/AuthApi';
 export { default as axiosInstance } from './api/apiHelper';
+
+// Pages
+export { Page404 } from './pages/Error/404';
+export { Page401 } from './pages/Error/401';
