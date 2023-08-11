@@ -18,6 +18,7 @@ export { Box } from './components/Box';
 export { BackendTableContent } from './components/Table/BackendTableContent';
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { PermissionTab } from './components/Tabs/PermissionTab';
+export { SidePanel } from './components/SidePanel';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
