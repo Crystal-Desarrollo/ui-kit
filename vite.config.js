@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react';
 import path from 'node:path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -12,8 +12,8 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.js'),
-      name: 'CrystalUIKit',
+      entry: path.resolve(__dirname, 'src/lib/index.ts'),
+      name: 'CrystalUI',
       formats: ['es', 'umd', 'cjs'],
       fileName: format => `index.${format}.js`,
     },
@@ -21,21 +21,16 @@ export default defineConfig({
       external: [
         'react',
         'react-dom',
-        '@mui/material',
-        '@mui/icons-material',
         '@emotion/react',
         '@emotion/styled',
-        'react-query',
+        '@mui/material',
+        '@mui/icons-material',
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          '@mui/material': 'MaterialUI',
-          '@mui/icons-material': 'MaterialUIIcons',
-          '@emotion/react': 'EmotionReact',
-          '@emotion/styled': 'EmotionStyled',
-          'react-query': 'ReactQuery',
+          'styled-components': 'styled',
         },
       },
     },
