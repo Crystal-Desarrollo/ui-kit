@@ -17619,7 +17619,7 @@ const Kl = ({ children: e, onToggleDrawer: t, open: o }) => {
   const r = Mc(), i = vc((a) => a.breakpoints.down("md"));
   return rn(() => {
     o && i && t(!1);
-  }, [r, i, t, o]), i ? /* @__PURE__ */ me(Xl, { open: o, onToggleDrawer: t, children: [
+  }, [r]), i ? /* @__PURE__ */ me(Xl, { open: o, onToggleDrawer: t, children: [
     /* @__PURE__ */ E(Ao, {}),
     e
   ] }) : /* @__PURE__ */ me(Gl, { variant: "permanent", open: o, children: [

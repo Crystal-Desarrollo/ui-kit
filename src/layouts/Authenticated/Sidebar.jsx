@@ -13,7 +13,8 @@ export const Sidebar = ({ children, onToggleDrawer, open }) => {
     if (open && isMobile) {
       onToggleDrawer(false);
     }
-  }, [location, isMobile, onToggleDrawer, open]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   if (isMobile) {
     return (
