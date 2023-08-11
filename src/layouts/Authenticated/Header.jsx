@@ -16,10 +16,10 @@ import { Avatar } from '../../components/Avatar';
 import { ConfirmDialog } from '../../components/Dialogs/ConfirmDialog';
 import { useEffect, useRef, useState } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
-import { useNavigate } from 'react-router-dom';
 import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { useAuth } from '../../hooks/useAuth';
+import PropTypes from 'prop-types';
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: prop => prop !== 'open',
@@ -58,9 +58,14 @@ const AvatarButton = ({ Icon, text, onClick }) => {
   );
 };
 
+AvatarButton.propTypes = {
+  Icon: PropTypes.elementType.isRequired,
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
+
 export const Header = ({ onToggleDrawer, open }) => {
   const { user, logout } = useAuth();
-  const navigate = useNavigate();
   const ref = useRef();
   const avatarMenuRef = useRef();
   const [avatarMenu, setAvatarMenu] = useState(false);
@@ -95,12 +100,10 @@ export const Header = ({ onToggleDrawer, open }) => {
 
   const handleNavigateToProfile = () => {
     setAvatarMenu(false);
-    navigate('/profile');
   };
 
   const handleNavigateToSettings = () => {
     setAvatarMenu(false);
-    navigate('/settings');
   };
 
   return (
@@ -229,4 +232,9 @@ export const Header = ({ onToggleDrawer, open }) => {
       </AppBar>
     </>
   );
+};
+
+Header.propTypes = {
+  onToggleDrawer: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
 };
