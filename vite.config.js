@@ -25,12 +25,17 @@ export default defineConfig({
         '@emotion/styled',
         '@mui/material',
         '@mui/icons-material',
+        'react-hook-form',
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
+          '@emotion/react': 'emotionReact',
+          '@emotion/styled': 'emotionStyled',
+          '@mui/material': 'MaterialUI',
+          '@mui/icons-material': 'MaterialUIIcons',
+          'react-hook-form': 'ReactHookForm',
         },
       },
     },

@@ -1,5 +1,5 @@
 import { Paper } from '@mui/material';
-import { Loader } from '../Loader';
+import { Loader } from '../../src/lib/Loader';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 
