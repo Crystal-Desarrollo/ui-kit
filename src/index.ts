@@ -25,7 +25,6 @@ export { useAuth } from './hooks/useAuth';
 
 // Theme
 export { theme } from './theme';
-export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
 
 // Layouts
 export { default as GuestLayout } from './layouts/Guest';
@@ -33,9 +32,13 @@ export { default as AuthenticatedLayout } from './layouts/Authenticated';
 
 // Auth
 export { AuthContext, AuthProvider } from './context/AuthContext';
-export { hasPermissions } from './utils/Auth';
 
-//Routes
+// Routes
 export { GuestMiddleware } from './components/routes/GuestMiddleware';
 export { Permission } from './components/routes/Permission';
 export { PrivateRoute } from './components/routes/PrivateRoute';
+
+// Utils
+export { hasPermissions } from './utils/Auth';
+export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
+export { parseBackendErrors } from './utils/Validations';

@@ -17711,6 +17711,11 @@ By.propTypes = {
   element: n.node.isRequired,
   has: n.object
 };
+const o0 = (e, t) => {
+  var i;
+  const o = (i = e.response) == null ? void 0 : i.data;
+  return o ? typeof o == "string" ? o : (o.errors ? Object.values(o.errors)[0][0] : o.message ?? null) || t || "Lo sentimos, ha ocurrido un error." : e;
+};
 export {
   ty as AsyncAutocomplete,
   Hl as AuthContext,
@@ -17740,6 +17745,7 @@ export {
   Fp as TextField,
   Vp as genericDescendingComparator,
   Ai as hasPermissions,
+  o0 as parseBackendErrors,
   gt as sortOrderEnum,
   qs as theme,
   kn as useAuth,
