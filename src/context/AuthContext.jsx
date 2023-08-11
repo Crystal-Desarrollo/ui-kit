@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       me().finally(() => setLoading(false));
     }
-  }, [user, token]);
+  }, []);
 
   const login = data => {
     return AuthApi.login(data).then(res => {
