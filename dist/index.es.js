@@ -17919,25 +17919,26 @@ ec.propTypes = {
   onToggleDrawer: n.func.isRequired,
   open: n.bool.isRequired
 };
-function Uy({ logout: e, user: t }) {
-  const [o, r] = ht(!1), i = () => r(!o);
+function Uy({ ItemsList: e, logout: t, user: o }) {
+  const [r, i] = ht(!1), a = () => i(!r);
   return /* @__PURE__ */ me(Pr, { sx: { display: "flex" }, children: [
     /* @__PURE__ */ E(
       ec,
       {
-        logout: e,
-        user: t,
-        open: o,
-        onToggleDrawer: i
+        logout: t,
+        user: o,
+        open: r,
+        onToggleDrawer: a
       }
     ),
     /* @__PURE__ */ E(
       Kl,
       {
-        user: t,
-        logout: e,
-        open: o,
-        onToggleDrawer: i
+        user: o,
+        logout: t,
+        open: r,
+        onToggleDrawer: a,
+        ItemsList: e
       }
     ),
     /* @__PURE__ */ me(
@@ -17945,7 +17946,7 @@ function Uy({ logout: e, user: t }) {
       {
         component: "main",
         sx: {
-          backgroundColor: (a) => a.palette.mode === "light" ? a.palette.grey[100] : a.palette.grey[900],
+          backgroundColor: (s) => s.palette.mode === "light" ? s.palette.grey[100] : s.palette.grey[900],
           display: "flex",
           flexDirection: "column",
           flexGrow: 1,
@@ -17973,7 +17974,8 @@ function Uy({ logout: e, user: t }) {
 }
 Uy.propTypes = {
   logout: n.func.isRequired,
-  user: n.object.isRequired
+  user: n.object.isRequired,
+  ItemsList: n.elementType.isRequired
 };
 const a0 = (e, t) => {
   var i;

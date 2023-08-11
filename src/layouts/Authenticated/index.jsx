@@ -6,7 +6,7 @@ import { Box, Container, Toolbar } from '@mui/material';
 import { Loader } from '../../components/Loader';
 import PropTypes from 'prop-types';
 
-export function AuthenticatedLayout({ logout, user }) {
+export function AuthenticatedLayout({ ItemsList, logout, user }) {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => setOpen(!open);
@@ -24,6 +24,7 @@ export function AuthenticatedLayout({ logout, user }) {
         logout={logout}
         open={open}
         onToggleDrawer={toggleDrawer}
+        ItemsList={ItemsList}
       />
 
       <Box
@@ -61,4 +62,5 @@ export function AuthenticatedLayout({ logout, user }) {
 AuthenticatedLayout.propTypes = {
   logout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
+  ItemsList: PropTypes.elementType.isRequired,
 };
