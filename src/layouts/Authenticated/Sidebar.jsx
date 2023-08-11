@@ -35,8 +35,6 @@ export const Sidebar = ({ ItemsList, onToggleDrawer, open }) => {
 Sidebar.propTypes = {
   onToggleDrawer: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  user: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired,
   ItemsList: PropTypes.elementType.isRequired,
 };
 

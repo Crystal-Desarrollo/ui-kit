@@ -20,8 +20,6 @@ export function AuthenticatedLayout({ ItemsList, logout, user }) {
         onToggleDrawer={toggleDrawer}
       />
       <Sidebar
-        user={user}
-        logout={logout}
         open={open}
         onToggleDrawer={toggleDrawer}
         ItemsList={ItemsList}

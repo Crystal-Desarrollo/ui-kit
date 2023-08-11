@@ -17630,8 +17630,6 @@ const Kl = ({ ItemsList: e, onToggleDrawer: t, open: o }) => {
 Kl.propTypes = {
   onToggleDrawer: n.func.isRequired,
   open: n.bool.isRequired,
-  user: n.object.isRequired,
-  logout: n.func.isRequired,
   ItemsList: n.elementType.isRequired
 };
 const Gl = fe(ls, {
@@ -17934,8 +17932,6 @@ function Uy({ ItemsList: e, logout: t, user: o }) {
     /* @__PURE__ */ E(
       Kl,
       {
-        user: o,
-        logout: t,
         open: r,
         onToggleDrawer: a,
         ItemsList: e
