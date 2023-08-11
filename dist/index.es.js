@@ -16521,7 +16521,7 @@ Jv.propTypes = {
   has: n.object,
   user: n.object
 };
-function Gy() {
+function Ky() {
   const [e, t] = fs();
   return {
     tab: Number(e.get("tab")) || 1,
@@ -17039,7 +17039,7 @@ const Tr = Jn, dy = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANMAAABBCAYAA
     }
   }
 });
-function Xy() {
+function Gy() {
   return /* @__PURE__ */ g(Vr, { theme: my, children: /* @__PURE__ */ pe(Tr, { container: !0, height: "100dvh", sx: {}, children: [
     /* @__PURE__ */ g(
       Tr,
@@ -17648,17 +17648,16 @@ const Ay = ({ user: e }) => {
   const o = ((r = Hr().state) == null ? void 0 : r.path) || "";
   return e ? /* @__PURE__ */ g(ms, { to: o }) : /* @__PURE__ */ g(qr, {});
 };
-let My;
 Ay.propTypes = {
-  user: My.object
+  user: n.object
 };
-const Ny = ({ user: e, children: t, fallback: o, has: r = {} }) => Ii(e, r) ? t : o;
-Ny.propTypes = {
+const My = ({ user: e, children: t, fallback: o, has: r = {} }) => Ii(e, r) ? t : o;
+My.propTypes = {
   children: n.node.isRequired,
   fallback: n.oneOfType([n.node, null]),
   has: n.object
 };
-const _y = ({ user: e, has: t, element: o }) => {
+const Ny = ({ user: e, has: t, element: o }) => {
   const r = Hr();
   return e ? Ii(e, t) ? o : "No tiene permiso" : /* @__PURE__ */ g(
     ms,
@@ -17670,12 +17669,12 @@ const _y = ({ user: e, has: t, element: o }) => {
     }
   );
 };
-_y.propTypes = {
+Ny.propTypes = {
   element: n.node.isRequired,
   has: n.object,
   user: n.object
 };
-const Jy = (e, t) => {
+const Xy = (e, t) => {
   var i;
   const o = (i = e.response) == null ? void 0 : i.data;
   return o ? typeof o == "string" ? o : (o.errors ? Object.values(o.errors)[0][0] : o.message ?? null) || t || "Lo sentimos, ha ocurrido un error." : e;
@@ -17693,7 +17692,7 @@ en.interceptors.response.use(
     throw e;
   }
 );
-class Dy {
+class _y {
   login(t) {
     return en.post("/login", t);
   }
@@ -17710,10 +17709,10 @@ class Dy {
     return await en.post("/reset-password", t);
   }
 }
-const Qy = new Dy();
+const Jy = new _y();
 export {
   Xv as AsyncAutocomplete,
-  Qy as AuthApi,
+  Jy as AuthApi,
   ky as AuthenticatedLayout,
   Ao as Avatar,
   If as BackendTableContent,
@@ -17722,15 +17721,15 @@ export {
   zs as ConfirmDialog,
   Pf as DateTime,
   Np as ErrorDialog,
-  Xy as GuestLayout,
+  Gy as GuestLayout,
   Ay as GuestMiddleware,
   Sn as Loader,
   ai as Modal,
   _p as Money,
   Dp as PageHeader,
-  Ny as Permission,
+  My as Permission,
   Jv as PermissionTab,
-  _y as PrivateRoute,
+  Ny as PrivateRoute,
   Ws as Select,
   Ap as Switch,
   kp as TabPanel,
@@ -17740,8 +17739,8 @@ export {
   en as axiosInstance,
   Fp as genericDescendingComparator,
   Ii as hasPermissions,
-  Jy as parseBackendErrors,
+  Xy as parseBackendErrors,
   bt as sortOrderEnum,
   Vs as theme,
-  Gy as useTabs
+  Ky as useTabs
 };

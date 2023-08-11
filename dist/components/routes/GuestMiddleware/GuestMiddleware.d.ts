@@ -3,6 +3,7 @@ export function GuestMiddleware({ user }: {
 }): import("react/jsx-runtime").JSX.Element;
 export namespace GuestMiddleware {
     namespace propTypes {
-        const user: any;
+        const user: PropTypes.Requireable<object>;
     }
 }
+import PropTypes from "prop-types";
