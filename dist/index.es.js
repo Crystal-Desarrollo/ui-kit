@@ -3748,7 +3748,7 @@ js.propTypes = {
   children: n.node,
   style: n.object,
   sx: n.object,
-  component: n.elementType,
+  component: n.string,
   onSubmit: n.func,
   isLoading: n.bool,
   marginBottom: n.string,

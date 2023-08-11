@@ -15,7 +15,7 @@ declare namespace Box {
         const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
         const style: PropTypes.Requireable<object>;
         const sx: PropTypes.Requireable<object>;
-        const component: PropTypes.Requireable<PropTypes.ReactComponentLike>;
+        const component: PropTypes.Requireable<string>;
         const onSubmit: PropTypes.Requireable<(...args: any[]) => any>;
         const isLoading: PropTypes.Requireable<boolean>;
         const marginBottom: PropTypes.Requireable<string>;
