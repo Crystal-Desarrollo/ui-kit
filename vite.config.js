@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/index.ts'),
+      entry: path.resolve(__dirname, 'src/index.ts'),
       name: 'CrystalUI',
       formats: ['es', 'umd', 'cjs'],
       fileName: format => `index.${format}.js`,
