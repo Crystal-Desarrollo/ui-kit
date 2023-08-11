@@ -18,7 +18,15 @@ export default defineConfig({
       fileName: format => `ui-kit.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
+      external: [
+        'react',
+        'react-dom',
+        '@mui/material',
+        '@mui/icons-material',
+        '@emotion/react',
+        '@emotion/styled',
+        'react-query',
+      ],
       output: {
         globals: {
           react: 'React',
@@ -27,6 +35,7 @@ export default defineConfig({
           '@mui/icons-material': 'MaterialUIIcons',
           '@emotion/react': 'EmotionReact',
           '@emotion/styled': 'EmotionStyled',
+          'react-query': 'ReactQuery',
         },
       },
     },
