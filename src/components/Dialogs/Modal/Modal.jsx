@@ -1,6 +1,10 @@
-import { Box as MuiBox, IconButton, Modal as MuiModal } from '@mui/material';
+import {
+  Box as MuiBox,
+  IconButton,
+  Modal as MuiModal,
+  Paper,
+} from '@mui/material';
 import PropTypes from 'prop-types';
-import { Box } from '../../Box';
 import { Loader } from '../../Loader';
 import { Close as CloseIcon } from '@mui/icons-material';
 
@@ -38,7 +42,7 @@ const Modal = ({
       <MuiBox sx={{ position: 'relative' }}>
         {isLoading && <Loader />}
         {renderBox ? (
-          <Box style={style}>{children}</Box>
+          <Paper style={style}>{children}</Paper>
         ) : (
           <div style={style}>{children}</div>
         )}

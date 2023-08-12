@@ -13,7 +13,6 @@ export { Select } from './components/Inputs/Select';
 export { TableContent } from './components/Table/TableContent';
 export { DateTime } from './components/DateTime';
 export { Checkbox } from './components/Inputs/Checkbox';
-export { Box } from './components/Box';
 export { BackendTableContent } from './components/Table/BackendTableContent';
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { PermissionTab } from './components/Tabs/PermissionTab';
