@@ -1,11 +1,11 @@
 import { Avatar as MuiAvatar } from '@mui/material';
 import PropTypes from 'prop-types';
 
-const Avatar = ({ name, profile_picture, size = 120, sx, ...rest }) => {
+const Avatar = ({ name, profilePicture, size = 120, sx, ...rest }) => {
   return (
     <MuiAvatar
       alt={name}
-      src={profile_picture?.url ?? '/default-avatar.png'}
+      src={profilePicture ?? '/default-avatar.png'}
       sx={{
         display: 'flex',
         justifyContent: 'center',
@@ -21,9 +21,7 @@ const Avatar = ({ name, profile_picture, size = 120, sx, ...rest }) => {
 };
 
 Avatar.propTypes = {
-  profile_picture: PropTypes.shape({
-    url: PropTypes.string,
-  }),
+  profilePicture: PropTypes.string.nullable,
   size: PropTypes.number,
   sx: PropTypes.object,
   name: PropTypes.string,
