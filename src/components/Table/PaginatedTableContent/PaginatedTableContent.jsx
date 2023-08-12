@@ -14,11 +14,11 @@ import {
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { sortOrderEnum } from '../../../utils/Table';
-import { theme } from '../../../theme';
+import { theme } from '../../../utils/Table/Table';
 import { useSearchParams } from 'react-router-dom';
 import qs from 'qs';
 
-const BackendTableContent = props => {
+const PaginatedTableContent = props => {
   const {
     headCells,
     fetchFunction,
@@ -86,11 +86,13 @@ const BackendTableContent = props => {
     );
   };
 
-  const Toolbar = React.cloneElement(toolbar, { setParams, params });
+  const Toolbar = toolbar
+    ? React.cloneElement(toolbar, { setParams, params })
+    : null;
 
   return (
     <ThemeProvider theme={theme}>
-      <Toolbar />
+      {Toolbar ? <Toolbar /> : null}
       <TableContainer>
         <Table>
           <TableHeader
@@ -147,7 +149,7 @@ const BackendTableContent = props => {
   );
 };
 
-BackendTableContent.propTypes = {
+PaginatedTableContent.propTypes = {
   headCells: PropTypes.array.isRequired,
   fetchFunction: PropTypes.func.isRequired,
   resourceName: PropTypes.string.isRequired,
@@ -161,7 +163,7 @@ BackendTableContent.propTypes = {
   onEditItem: PropTypes.func,
   filters: PropTypes.object,
   row: PropTypes.element,
-  Toolbar: PropTypes.elementType,
+  toolbar: PropTypes.element,
 };
 
-export default BackendTableContent;
+export default PaginatedTableContent;

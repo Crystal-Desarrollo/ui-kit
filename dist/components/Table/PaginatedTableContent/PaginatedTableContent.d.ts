@@ -1,6 +1,6 @@
-export default BackendTableContent;
-declare function BackendTableContent(props: any): import("react/jsx-runtime").JSX.Element;
-declare namespace BackendTableContent {
+export default PaginatedTableContent;
+declare function PaginatedTableContent(props: any): import("react/jsx-runtime").JSX.Element;
+declare namespace PaginatedTableContent {
     namespace propTypes {
         const headCells: PropTypes.Validator<any[]>;
         const fetchFunction: PropTypes.Validator<(...args: any[]) => any>;
@@ -12,7 +12,7 @@ declare namespace BackendTableContent {
         const onEditItem: PropTypes.Requireable<(...args: any[]) => any>;
         const filters: PropTypes.Requireable<object>;
         const row: PropTypes.Requireable<PropTypes.ReactElementLike>;
-        const Toolbar: PropTypes.Requireable<PropTypes.ReactComponentLike>;
+        const toolbar: PropTypes.Requireable<PropTypes.ReactElementLike>;
     }
 }
 import PropTypes from "prop-types";

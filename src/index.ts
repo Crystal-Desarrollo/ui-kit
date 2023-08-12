@@ -14,7 +14,7 @@ export { Select } from './components/Inputs/Select';
 export { TableContent } from './components/Table/TableContent';
 export { DateTime } from './components/DateTime';
 export { Checkbox } from './components/Inputs/Checkbox';
-export { BackendTableContent } from './components/Table/BackendTableContent';
+export { PaginatedTableContent } from './components/Table/PaginatedTableContent';
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { PermissionTab } from './components/Tabs/PermissionTab';
 export { SidePanel } from './components/SidePanel';
