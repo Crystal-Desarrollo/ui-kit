@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { Loader } from '../../Loader';
 import { TableHeader } from '../TableHeader';
 import {
@@ -11,7 +12,6 @@ import {
   Typography,
 } from '@mui/material';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { sortOrderEnum } from '../../../utils/Table';
 import { theme } from '../../../theme';
@@ -21,16 +21,14 @@ import qs from 'qs';
 const BackendTableContent = props => {
   const {
     headCells,
-    fetchRecords,
-    queryKey,
+    fetchFunction,
+    resourceName,
     defaultOrderBy,
     defaultOrderDirection = sortOrderEnum.DESC,
     defaultRowsPerPage = 10,
-    Row,
-    Toolbar,
-    onDeleteItem = null,
-    onEditItem = null,
     filters,
+    toolbar,
+    row,
   } = props;
   const [searchParams, setSearchParams] = useSearchParams();
   const [orderBy, setOrderBy] = useState(defaultOrderBy);
@@ -45,8 +43,8 @@ const BackendTableContent = props => {
     isLoading,
     isFetching,
   } = useQuery({
-    queryKey: [queryKey, params],
-    queryFn: () => fetchRecords(params),
+    queryKey: [resourceName, params],
+    queryFn: () => fetchFunction(params),
     onSuccess: () => {
       setSearchParams(qs.stringify(params, { skipNulls: true }), {
         replace: true,
@@ -88,9 +86,11 @@ const BackendTableContent = props => {
     );
   };
 
+  const Toolbar = React.cloneElement(toolbar, { setParams, params });
+
   return (
     <ThemeProvider theme={theme}>
-      {Toolbar && <Toolbar setParams={setParams} params={params} />}
+      <Toolbar />
       <TableContainer>
         <Table>
           <TableHeader
@@ -109,14 +109,9 @@ const BackendTableContent = props => {
             )}
             {paginator?.data?.length > 0 ? (
               paginator.data.map(data => {
-                return (
-                  <Row
-                    key={data.id}
-                    data={data}
-                    onDeleteItem={onDeleteItem}
-                    onEditItem={onEditItem}
-                  />
-                );
+                const Row = React.cloneElement(row, { data });
+
+                return <Row key={data.id} data={data} />;
               })
             ) : (
               <TableRow>
@@ -135,7 +130,7 @@ const BackendTableContent = props => {
           component="div"
           from={paginator.from}
           to={paginator.to}
-          page={paginator.current_page - 1}
+          page={paginator.current_page - 1} // Api goes from 1 to n, but MUI goes from 0 to n-1
           rowsPerPage={paginator.per_page}
           count={paginator.total}
           onPageChange={handleChangePage}
@@ -154,8 +149,8 @@ const BackendTableContent = props => {
 
 BackendTableContent.propTypes = {
   headCells: PropTypes.array.isRequired,
-  fetchRecords: PropTypes.func.isRequired,
-  queryKey: PropTypes.string.isRequired,
+  fetchFunction: PropTypes.func.isRequired,
+  resourceName: PropTypes.string.isRequired,
   defaultOrderBy: PropTypes.string,
   defaultOrderDirection: PropTypes.oneOf([
     sortOrderEnum.ASC,
@@ -165,7 +160,7 @@ BackendTableContent.propTypes = {
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
   filters: PropTypes.object,
-  Row: PropTypes.elementType.isRequired,
+  row: PropTypes.element,
   Toolbar: PropTypes.elementType,
 };
 
