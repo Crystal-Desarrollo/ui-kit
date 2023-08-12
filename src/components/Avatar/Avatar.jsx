@@ -21,7 +21,7 @@ const Avatar = ({ name, profilePicture, size = 120, sx, ...rest }) => {
 };
 
 Avatar.propTypes = {
-  profilePicture: PropTypes.string.nullable,
+  profilePicture: PropTypes.string,
   size: PropTypes.number,
   sx: PropTypes.object,
   name: PropTypes.string,

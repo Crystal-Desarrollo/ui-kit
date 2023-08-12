@@ -8,7 +8,7 @@ declare function Avatar({ name, profilePicture, size, sx, ...rest }: {
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Avatar {
     namespace propTypes {
-        const profilePicture: any;
+        const profilePicture: PropTypes.Requireable<string>;
         const size: PropTypes.Requireable<number>;
         const sx: PropTypes.Requireable<object>;
         const name: PropTypes.Requireable<string>;

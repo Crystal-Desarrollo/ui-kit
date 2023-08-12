@@ -111,7 +111,7 @@ const PaginatedTableContent = props => {
             )}
             {paginator?.data?.length > 0 ? (
               paginator.data.map(data => {
-                return React.cloneElement(row, { data, key: data.id });
+                return React.cloneElement(row, { key: data.id, data: data });
               })
             ) : (
               <TableRow>

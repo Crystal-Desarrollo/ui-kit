@@ -1496,7 +1496,7 @@ const Yr = ({ name: e, profilePicture: t, size: o = 120, sx: r, ...i }) => /* @_
   }
 );
 Yr.propTypes = {
-  profilePicture: n.string.nullable,
+  profilePicture: n.string,
   size: n.number,
   sx: n.object,
   name: n.string
@@ -4963,7 +4963,7 @@ const Tf = (e) => {
       ),
       /* @__PURE__ */ me(as, { children: [
         (D || x) && /* @__PURE__ */ y($n, { children: /* @__PURE__ */ y(_n, { colSpan: t.length, align: "center", children: /* @__PURE__ */ y(uo, {}) }) }),
-        ((V = E == null ? void 0 : E.data) == null ? void 0 : V.length) > 0 ? E.data.map((R) => gt.cloneElement(u, { data: R, key: R.id })) : /* @__PURE__ */ y($n, { children: /* @__PURE__ */ y(_n, { colSpan: t.length, align: "center", children: /* @__PURE__ */ y(tt, { variant: "h6", sx: { textAlign: "center" }, children: "No hay nada por aquí" }) }) })
+        ((V = E == null ? void 0 : E.data) == null ? void 0 : V.length) > 0 ? E.data.map((R) => gt.cloneElement(u, { key: R.id, data: R })) : /* @__PURE__ */ y($n, { children: /* @__PURE__ */ y(_n, { colSpan: t.length, align: "center", children: /* @__PURE__ */ y(tt, { variant: "h6", sx: { textAlign: "center" }, children: "No hay nada por aquí" }) }) })
       ] })
     ] }) }),
     E && /* @__PURE__ */ y(
