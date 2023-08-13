@@ -19,6 +19,7 @@ export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { PermissionTab } from './components/Tabs/PermissionTab';
 export { SidePanel } from './components/SidePanel';
 export { Box } from './components/Box';
+export { SmallButton } from './components/Buttons/SmallButton';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
