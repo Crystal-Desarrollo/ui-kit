@@ -27,7 +27,6 @@ const PaginatedTableContent = props => {
     defaultOrderDirection = sortOrderEnum.DESC,
     defaultRowsPerPage = 10,
     filters,
-    toolbar,
     row,
   } = props;
   const [searchParams, setSearchParams] = useSearchParams();
@@ -55,6 +54,7 @@ const PaginatedTableContent = props => {
   useEffect(() => {
     setParams(prev => ({
       ...prev,
+      page: 1,
       sort: {
         field: orderBy,
         direction: orderDirection,
@@ -65,6 +65,7 @@ const PaginatedTableContent = props => {
   useEffect(() => {
     setParams(prev => ({
       ...prev,
+      page: 1,
       filter: filters,
     }));
   }, [filters]);
@@ -74,7 +75,7 @@ const PaginatedTableContent = props => {
   };
 
   const handleChangeRowsPerPage = e => {
-    setParams({ ...params, per_page: e.target.value });
+    setParams({ ...params, per_page: e.target.value, page: 1 });
   };
 
   const handleSortRequest = (event, property) => {
@@ -86,14 +87,13 @@ const PaginatedTableContent = props => {
     );
   };
 
-  const Toolbar = toolbar
-    ? React.cloneElement(toolbar, { setParams, params })
-    : null;
-
   return (
     <ThemeProvider theme={theme}>
-      {Toolbar}
-      <TableContainer sx={{ position: 'relative', minHeight: '529px' }}>
+      {/*
+        475px is approximately the size of the box with the default of 10 rows per page
+        We need to force this min height so the box doesn't become small when loading
+      */}
+      <TableContainer sx={{ position: 'relative', minHeight: '475px' }}>
         <Table>
           <TableHeader
             headCells={headCells}
@@ -163,7 +163,6 @@ PaginatedTableContent.propTypes = {
   onEditItem: PropTypes.func,
   filters: PropTypes.object,
   row: PropTypes.element,
-  toolbar: PropTypes.element,
 };
 
 export default PaginatedTableContent;
