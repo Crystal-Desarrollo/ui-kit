@@ -15,7 +15,7 @@ const TableHeader = props => {
       <TableRow>
         {headCells.map(x => {
           return (
-            <TableCell component="th" key={x.id} width={x.width}>
+            <TableCell component="th" key={x.id}>
               {x.isSortable ? (
                 <TableSortLabel
                   active={orderBy === x.id}

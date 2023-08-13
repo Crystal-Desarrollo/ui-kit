@@ -3872,7 +3872,7 @@ const Vt = (e) => qn(e) && e !== "classes", Dp = qn, Ap = Gd({
   const t = ln(), { orderBy: o, orderDirection: r, headCells: i, handleSortRequest: a } = e, s = (l) => (c) => {
     a(c, l);
   };
-  return /* @__PURE__ */ y(ac, { sx: { backgroundColor: t.palette.table.header }, children: /* @__PURE__ */ y($n, { children: i.map((l) => /* @__PURE__ */ y(_n, { component: "th", width: l.width, children: l.isSortable ? /* @__PURE__ */ y(
+  return /* @__PURE__ */ y(ac, { sx: { backgroundColor: t.palette.table.header }, children: /* @__PURE__ */ y($n, { children: i.map((l) => /* @__PURE__ */ y(_n, { component: "th", children: l.isSortable ? /* @__PURE__ */ y(
     sc,
     {
       active: o === l.id,
@@ -4951,7 +4951,7 @@ const Tf = (e) => {
   }, j = c ? gt.cloneElement(c, { setParams: A, params: f }) : null;
   return /* @__PURE__ */ me(qr, { theme: Gp, children: [
     j,
-    /* @__PURE__ */ y(rs, { children: /* @__PURE__ */ me(is, { children: [
+    /* @__PURE__ */ y(rs, { sx: { position: "relative" }, children: /* @__PURE__ */ me(is, { children: [
       /* @__PURE__ */ y(
         li,
         {

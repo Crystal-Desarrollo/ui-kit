@@ -93,7 +93,7 @@ const PaginatedTableContent = props => {
   return (
     <ThemeProvider theme={theme}>
       {Toolbar}
-      <TableContainer>
+      <TableContainer sx={{ position: 'relative' }}>
         <Table>
           <TableHeader
             headCells={headCells}
