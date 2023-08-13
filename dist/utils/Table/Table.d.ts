@@ -3,4 +3,3 @@ export namespace sortOrderEnum {
     const ASC: string;
     const DESC: string;
 }
-export function theme(theme: any): import("@mui/material").Theme;

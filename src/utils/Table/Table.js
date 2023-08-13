@@ -1,6 +1,4 @@
 import { isValid } from 'date-fns';
-import { createTheme } from '@mui/material';
-import { esES } from '@mui/material/locale';
 
 export const sortOrderEnum = {
   ASC: 'asc',
@@ -49,30 +47,3 @@ export function genericDescendingComparator(
 
   return order === sortOrderEnum.ASC ? result : -result;
 }
-
-export const theme = theme =>
-  createTheme(
-    {
-      ...theme,
-      palette: {
-        ...theme.palette,
-        table: {
-          header: '#e2e2e2',
-          openRow: '#ebf1fa',
-        },
-      },
-      components: {
-        ...theme.components,
-        MuiTableCell: {
-          styleOverrides: {
-            root: {
-              fontSize: '14px',
-              whiteSpace: 'nowrap',
-              padding: '0.5rem 1rem',
-            },
-          },
-        },
-      },
-    },
-    esES,
-  );

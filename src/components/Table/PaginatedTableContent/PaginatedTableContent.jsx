@@ -8,13 +8,11 @@ import {
   TableContainer,
   TablePagination,
   TableRow,
-  ThemeProvider,
   Typography,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { sortOrderEnum } from '../../../utils/Table';
-import { theme } from '../../../utils/Table/Table';
 import { useSearchParams } from 'react-router-dom';
 import qs from 'qs';
 
@@ -51,8 +49,7 @@ const PaginatedTableContent = props => {
     setSearchParams(qs.stringify(params, { skipNulls: true }), {
       replace: true,
     });
-    // eslint-disable-next-line
-  }, [params]);
+  }, [params, setSearchParams]);
 
   useEffect(() => {
     setParams(prev => ({
@@ -91,7 +88,7 @@ const PaginatedTableContent = props => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <TableContainer sx={{ position: 'relative' }}>
         <Table>
           <TableHeader
@@ -146,7 +143,7 @@ const PaginatedTableContent = props => {
           }}
         />
       )}
-    </ThemeProvider>
+    </>
   );
 };
 

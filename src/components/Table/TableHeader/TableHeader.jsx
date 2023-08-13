@@ -1,9 +1,7 @@
 import { TableCell, TableHead, TableRow, TableSortLabel } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import PropTypes from 'prop-types';
 
 const TableHeader = props => {
-  const theme = useTheme();
   const { orderBy, orderDirection, headCells, handleSortRequest } = props;
 
   const createSortHandler = property => event => {
@@ -11,7 +9,7 @@ const TableHeader = props => {
   };
 
   return (
-    <TableHead sx={{ backgroundColor: theme.palette.table.header }}>
+    <TableHead sx={{ backgroundColor: theme => theme.palette.table.header }}>
       <TableRow>
         {headCells.map(x => {
           return (
