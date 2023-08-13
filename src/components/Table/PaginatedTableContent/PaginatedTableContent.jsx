@@ -38,12 +38,14 @@ const PaginatedTableContent = props => {
   });
 
   const {
-    data: paginator,
     isLoading,
     isFetching,
+    data: paginator,
+    isPreviousData,
   } = useQuery({
     queryKey: [resourceName, params],
     queryFn: () => fetchFunction(params),
+    keepPreviousData: true,
   });
 
   useEffect(() => {
