@@ -26,7 +26,7 @@ const PaginatedTableContent = props => {
     defaultOrderBy,
     defaultOrderDirection = sortOrderEnum.DESC,
     defaultRowsPerPage = 10,
-    filters,
+    baseParams,
     row,
   } = props;
   const [searchParams, setSearchParams] = useSearchParams();
@@ -44,12 +44,13 @@ const PaginatedTableContent = props => {
   } = useQuery({
     queryKey: [resourceName, params],
     queryFn: () => fetchFunction(params),
-    onSuccess: () => {
-      setSearchParams(qs.stringify(params, { skipNulls: true }), {
-        replace: true,
-      });
-    },
   });
+
+  useEffect(() => {
+    setSearchParams(qs.stringify(params, { skipNulls: true }), {
+      replace: true,
+    });
+  }, [params, setSearchParams]);
 
   useEffect(() => {
     setParams(prev => ({
@@ -65,10 +66,10 @@ const PaginatedTableContent = props => {
   useEffect(() => {
     setParams(prev => ({
       ...prev,
+      ...baseParams,
       page: 1,
-      filter: filters,
     }));
-  }, [filters]);
+  }, [baseParams]);
 
   const handleChangePage = (event, newPage) => {
     setParams({ ...params, page: ++newPage });
@@ -89,11 +90,7 @@ const PaginatedTableContent = props => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/*
-        475px is approximately the size of the box with the default of 10 rows per page
-        We need to force this min height so the box doesn't become small when loading
-      */}
-      <TableContainer sx={{ position: 'relative', minHeight: '475px' }}>
+      <TableContainer sx={{ position: 'relative' }}>
         <Table>
           <TableHeader
             headCells={headCells}
@@ -103,7 +100,9 @@ const PaginatedTableContent = props => {
           />
           <TableBody>
             {(isLoading || isFetching) && (
-              <TableRow>
+              // 475px is approximately the size of the box with the default of 10 rows per page
+              // We need to force this min height so the box doesn't become small when loading
+              <TableRow sx={{ minHeight: '475px' }}>
                 <TableCell colSpan={headCells.length} align="center">
                   <Loader />
                 </TableCell>
@@ -161,7 +160,7 @@ PaginatedTableContent.propTypes = {
   defaultRowsPerPage: PropTypes.number,
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
-  filters: PropTypes.object,
+  baseParams: PropTypes.object,
   row: PropTypes.element,
 };
 

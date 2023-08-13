@@ -10,7 +10,7 @@ declare namespace PaginatedTableContent {
         const defaultRowsPerPage: PropTypes.Requireable<number>;
         const onDeleteItem: PropTypes.Requireable<(...args: any[]) => any>;
         const onEditItem: PropTypes.Requireable<(...args: any[]) => any>;
-        const filters: PropTypes.Requireable<object>;
+        const baseParams: PropTypes.Requireable<object>;
         const row: PropTypes.Requireable<PropTypes.ReactElementLike>;
     }
 }
