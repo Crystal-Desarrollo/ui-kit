@@ -1,10 +1,10 @@
 export default Modal;
-declare function Modal({ open, onClose, children, style, renderBox, disableCloseOnBackdropClick, isLoading, ...rest }: {
+declare function Modal({ open, onClose, children, sx, renderBox, disableCloseOnBackdropClick, isLoading, ...rest }: {
     [x: string]: any;
     open: any;
     onClose: any;
     children: any;
-    style: any;
+    sx: any;
     renderBox?: boolean | undefined;
     disableCloseOnBackdropClick?: boolean | undefined;
     isLoading?: boolean | undefined;

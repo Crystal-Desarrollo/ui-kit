@@ -1354,7 +1354,7 @@ const n = /* @__PURE__ */ Gc(Uc), uo = () => /* @__PURE__ */ y(
   open: e,
   onClose: t,
   children: o,
-  style: r,
+  sx: r,
   renderBox: i = !0,
   disableCloseOnBackdropClick: a = !1,
   isLoading: s = !1,
@@ -1379,7 +1379,17 @@ const n = /* @__PURE__ */ Gc(Uc), uo = () => /* @__PURE__ */ y(
       ...l,
       children: /* @__PURE__ */ me(Jn, { sx: { position: "relative" }, children: [
         s && /* @__PURE__ */ y(uo, {}),
-        i ? /* @__PURE__ */ y(ko, { style: r, children: o }) : /* @__PURE__ */ y("div", { style: r, children: o }),
+        i ? /* @__PURE__ */ y(
+          ko,
+          {
+            sx: {
+              position: "relative",
+              padding: 2,
+              ...r
+            },
+            children: o
+          }
+        ) : /* @__PURE__ */ y("div", { style: r, children: o }),
         /* @__PURE__ */ y(
           Ro,
           {

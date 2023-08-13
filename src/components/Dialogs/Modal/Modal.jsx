@@ -12,7 +12,7 @@ const Modal = ({
   open,
   onClose,
   children,
-  style,
+  sx,
   renderBox = true,
   disableCloseOnBackdropClick = false,
   isLoading = false,
@@ -42,9 +42,17 @@ const Modal = ({
       <MuiBox sx={{ position: 'relative' }}>
         {isLoading && <Loader />}
         {renderBox ? (
-          <Paper style={style}>{children}</Paper>
+          <Paper
+            sx={{
+              position: 'relative',
+              padding: 2,
+              ...sx,
+            }}
+          >
+            {children}
+          </Paper>
         ) : (
-          <div style={style}>{children}</div>
+          <div style={sx}>{children}</div>
         )}
         <IconButton
           onClick={handleClose}
