@@ -1,11 +1,7 @@
-import {
-  Box as MuiBox,
-  IconButton,
-  Modal as MuiModal,
-  Paper,
-} from '@mui/material';
+import { IconButton, Modal as MuiModal } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Loader } from '../../Loader';
+import { Box } from '../../Box';
 import { Close as CloseIcon } from '@mui/icons-material';
 
 const Modal = ({
@@ -13,7 +9,6 @@ const Modal = ({
   onClose,
   children,
   sx,
-  renderBox = true,
   disableCloseOnBackdropClick = false,
   isLoading = false,
   ...rest
@@ -39,21 +34,7 @@ const Modal = ({
       }}
       {...rest}
     >
-      <MuiBox sx={{ position: 'relative' }}>
-        {isLoading && <Loader />}
-        {renderBox ? (
-          <Paper
-            sx={{
-              position: 'relative',
-              padding: 2,
-              ...sx,
-            }}
-          >
-            {children}
-          </Paper>
-        ) : (
-          <div style={sx}>{children}</div>
-        )}
+      <>
         <IconButton
           onClick={handleClose}
           sx={{
@@ -64,7 +45,9 @@ const Modal = ({
         >
           <CloseIcon />
         </IconButton>
-      </MuiBox>
+        {isLoading && <Loader />}
+        <Box sx={sx}>{children}</Box>
+      </>
     </MuiModal>
   );
 };
@@ -73,8 +56,7 @@ Modal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
-  style: PropTypes.object,
-  renderBox: PropTypes.bool,
+  sx: PropTypes.object,
   disableCloseOnBackdropClick: PropTypes.bool,
   isLoading: PropTypes.bool,
 };

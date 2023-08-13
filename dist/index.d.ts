@@ -17,6 +17,7 @@ export { PaginatedTableContent } from './components/Table/PaginatedTableContent'
 export { AsyncAutocomplete } from './components/Inputs/AsyncAutocomplete';
 export { PermissionTab } from './components/Tabs/PermissionTab';
 export { SidePanel } from './components/SidePanel';
+export { Box } from './components/Box';
 export { useTabs } from './hooks/useTabs';
 export { theme } from './theme';
 export { GuestLayout } from './layouts/Guest';
