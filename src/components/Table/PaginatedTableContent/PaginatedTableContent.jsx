@@ -93,7 +93,7 @@ const PaginatedTableContent = props => {
   return (
     <ThemeProvider theme={theme}>
       {Toolbar}
-      <TableContainer sx={{ position: 'relative' }}>
+      <TableContainer sx={{ position: 'relative', minHeight: '529px' }}>
         <Table>
           <TableHeader
             headCells={headCells}
@@ -109,11 +109,13 @@ const PaginatedTableContent = props => {
                 </TableCell>
               </TableRow>
             )}
-            {paginator?.data?.length > 0 ? (
+
+            {paginator?.data?.length > 0 &&
               paginator.data.map(data => {
                 return React.cloneElement(row, { key: data.id, data: data });
-              })
-            ) : (
+              })}
+
+            {!isLoading && !isFetching && paginator?.data?.length === 0 && (
               <TableRow>
                 <TableCell colSpan={headCells.length} align="center">
                   <Typography variant="h6" sx={{ textAlign: 'center' }}>
