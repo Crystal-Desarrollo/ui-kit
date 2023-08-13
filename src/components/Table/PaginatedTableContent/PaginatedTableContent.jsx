@@ -41,7 +41,6 @@ const PaginatedTableContent = props => {
     isLoading,
     isFetching,
     data: paginator,
-    isPreviousData,
   } = useQuery({
     queryKey: [resourceName, params],
     queryFn: () => fetchFunction(params),
@@ -52,7 +51,8 @@ const PaginatedTableContent = props => {
     setSearchParams(qs.stringify(params, { skipNulls: true }), {
       replace: true,
     });
-  }, [params, setSearchParams]);
+    // eslint-disable-next-line
+  }, [params]);
 
   useEffect(() => {
     setParams(prev => ({
