@@ -1,8 +1,11 @@
-import { CircularProgress, FormControl } from '@mui/material';
+import {
+  CircularProgress,
+  FormControl,
+  TextField as MuiTextField,
+} from '@mui/material';
 import MuiAutocomplete, {
   createFilterOptions,
 } from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -12,26 +15,23 @@ const filter = createFilterOptions();
 
 const AsyncAutocomplete = props => {
   const {
-    options = [],
     labelText,
     name,
-    multiple = false,
     required,
     onCreateNew,
     renderLabel,
     fetchFunction,
+    multiple,
+    ...rest
   } = props;
   const { control } = useFormContext();
-  const [data, setData] = useState(options);
+  const [data, setData] = useState([]);
+  const [selectedValue, setSelectedValue] = useState(multiple ? [] : '');
   const [debouncedTerm, setDebouncedTerm] = useState('');
 
-  const { isLoading, refetch } = useQuery(['options'], {
-    queryFn: () =>
-      fetchFunction({
-        filter: {
-          query: debouncedTerm,
-        },
-      }),
+  const { isFetching, refetch } = useQuery({
+    queryKey: ['options', debouncedTerm],
+    queryFn: () => fetchFunction({ filter: { query: debouncedTerm } }),
     enabled: false,
   });
 
@@ -39,12 +39,11 @@ const AsyncAutocomplete = props => {
     const timer = setTimeout(() => {
       if (debouncedTerm) {
         refetch().then(({ data }) => {
-          setData(data.data);
+          if (data?.data) {
+            setData(data.data);
+          }
         });
-        return;
       }
-
-      setData([]);
     }, 500);
     return () => clearTimeout(timer);
   }, [debouncedTerm, refetch]);
@@ -52,10 +51,11 @@ const AsyncAutocomplete = props => {
   const handleChange = (event, newValue, onChange) => {
     if (newValue && newValue.inputValue) {
       onCreateNew && onCreateNew(newValue.inputValue);
-    } else {
-      event.target.value = newValue?.id ?? null;
-      onChange(event);
+      return;
     }
+
+    setSelectedValue(newValue);
+    onChange(newValue);
   };
 
   const getOptionLabel = option => {
@@ -71,7 +71,10 @@ const AsyncAutocomplete = props => {
 
   const getOption = (props, option) => {
     return (
-      <li {...props}>{renderLabel ? renderLabel(option) : option.name}</li>
+      // eslint-disable-next-line
+      <li {...props} key={option.id ?? props.key}>
+        {renderLabel ? renderLabel(option) : option.name}
+      </li>
     );
   };
 
@@ -97,19 +100,15 @@ const AsyncAutocomplete = props => {
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth {...rest}>
       <Controller
         control={control}
         name={name}
-        render={({ field: { ref, onChange, value, ...field } }) => {
+        render={({ field: { ref, onChange, ...field } }) => {
           return (
             <MuiAutocomplete
               multiple={multiple}
-              value={
-                data.find(x => x.id === Number(value))
-                  ? data.find(x => x.id === Number(value)).name
-                  : ''
-              }
+              value={selectedValue}
               onChange={(event, newValue) =>
                 handleChange(event, newValue, onChange)
               }
@@ -123,7 +122,7 @@ const AsyncAutocomplete = props => {
               renderOption={getOption}
               freeSolo
               renderInput={params => (
-                <TextField
+                <MuiTextField
                   {...params}
                   {...field}
                   inputRef={ref}
@@ -134,7 +133,7 @@ const AsyncAutocomplete = props => {
                     ...params.InputProps,
                     endAdornment: (
                       <>
-                        {isLoading ? (
+                        {isFetching ? (
                           <CircularProgress color="inherit" size={20} />
                         ) : null}
                         {params.InputProps.endAdornment}
@@ -152,14 +151,14 @@ const AsyncAutocomplete = props => {
 };
 
 AsyncAutocomplete.propTypes = {
-  options: PropTypes.array,
+  multiple: PropTypes.bool,
   labelText: PropTypes.string,
   name: PropTypes.string,
-  multiple: PropTypes.bool,
   required: PropTypes.bool,
   onCreateNew: PropTypes.func,
   renderLabel: PropTypes.func,
   fetchFunction: PropTypes.func,
+  onChange: PropTypes.func,
 };
 
 export default AsyncAutocomplete;
