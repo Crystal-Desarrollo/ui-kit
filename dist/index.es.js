@@ -1358,7 +1358,12 @@ const n = /* @__PURE__ */ Gc(Uc), ln = gt.forwardRef(
   }
 );
 ln.displayName = "Loader";
-const Qc = ({ sx: e, isLoading: t, children: o }) => /* @__PURE__ */ me(
+const Qc = ({
+  sx: e,
+  isLoading: t,
+  children: o,
+  ...r
+}) => /* @__PURE__ */ me(
   qo,
   {
     sx: {
@@ -1368,6 +1373,7 @@ const Qc = ({ sx: e, isLoading: t, children: o }) => /* @__PURE__ */ me(
       position: "relative",
       ...e
     },
+    ...r,
     children: [
       t && /* @__PURE__ */ y(ln, {}),
       o

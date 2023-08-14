@@ -8,7 +8,12 @@ type BoxProps = {
   children: React.ReactNode;
 };
 
-const Box: React.FC<BoxProps> = ({ sx, isLoading, children }: BoxProps) => {
+const Box: React.FC<BoxProps> = ({
+  sx,
+  isLoading,
+  children,
+  ...rest
+}: BoxProps) => {
   return (
     <Paper
       sx={{
@@ -18,6 +23,7 @@ const Box: React.FC<BoxProps> = ({ sx, isLoading, children }: BoxProps) => {
         position: 'relative',
         ...sx,
       }}
+      {...rest}
     >
       {isLoading && <Loader />}
       {children}
