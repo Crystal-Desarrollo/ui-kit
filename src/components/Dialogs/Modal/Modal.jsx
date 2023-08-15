@@ -35,18 +35,20 @@ const Modal = ({
       {...rest}
     >
       <>
-        <IconButton
-          onClick={handleClose}
-          sx={{
-            position: 'absolute',
-            top: 2,
-            right: 2,
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
         {isLoading && <Loader />}
-        <Box sx={sx}>{children}</Box>
+        <Box sx={sx}>
+          <IconButton
+            onClick={handleClose}
+            sx={{
+              position: 'absolute',
+              top: 2,
+              right: 2,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+          {children}
+        </Box>
       </>
     </MuiModal>
   );

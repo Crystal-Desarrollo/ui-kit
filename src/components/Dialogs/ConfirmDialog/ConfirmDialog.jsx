@@ -61,20 +61,19 @@ const ConfirmDialog = ({
           </Stack>
         )}
       </Stack>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'end',
-        }}
-      >
-        <Button color="secondary" onClick={handleCancel} disabled={isLoading}>
+      <Stack direction="row" justifyContent="end">
+        <Button
+          variant="outlined"
+          onClick={handleCancel}
+          disabled={isLoading}
+          sx={{ mr: 2 }}
+        >
           Cancelar
         </Button>
         <Button onClick={handleConfirm} disabled={isLoading}>
           {error ? 'Reintentar' : 'Confirmar'}
         </Button>
-      </div>
+      </Stack>
     </Modal>
   );
 };

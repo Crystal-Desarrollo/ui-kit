@@ -7,11 +7,9 @@ declare namespace TableContent {
         const customPropertiesComparator: PropTypes.Requireable<(...args: any[]) => any>;
         const defaultRowsPerPage: PropTypes.Requireable<number>;
         const isLoading: PropTypes.Requireable<boolean>;
-        const onDeleteItem: PropTypes.Requireable<(...args: any[]) => any>;
-        const onEditItem: PropTypes.Requireable<(...args: any[]) => any>;
         const defaultOrderBy: PropTypes.Requireable<string>;
         const defaultOrderDirection: PropTypes.Requireable<string>;
-        const Row: PropTypes.Validator<NonNullable<PropTypes.ReactComponentLike>>;
+        const row: PropTypes.Requireable<PropTypes.ReactElementLike>;
     }
 }
 import PropTypes from "prop-types";

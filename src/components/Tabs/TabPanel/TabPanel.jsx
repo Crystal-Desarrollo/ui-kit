@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 
 export default function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index } = props;
 
-  return (
-    <div role="tabpanel" hidden={value !== index} {...other}>
-      {value === index && children}
-    </div>
-  );
+  return <>{value === index && children}</>;
 }
 
 TabPanel.propTypes = {

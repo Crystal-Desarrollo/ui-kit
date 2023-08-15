@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -24,12 +24,10 @@ const TableContent = props => {
     records = [],
     defaultRowsPerPage = 25,
     isLoading = false,
-    onDeleteItem = null,
-    onEditItem = null,
     defaultOrderBy = '',
     customPropertiesComparator = null,
     defaultOrderDirection = sortOrderEnum.ASC,
-    Row,
+    row,
   } = props;
   const [orderDirection, setOrderDirection] = useState(defaultOrderDirection);
   const [orderBy, setOrderBy] = useState(defaultOrderBy);
@@ -97,14 +95,7 @@ const TableContent = props => {
 
             {rows?.length > 0 ? (
               rows.map(data => {
-                return (
-                  <Row
-                    key={data.id}
-                    data={data}
-                    onDeleteItem={onDeleteItem}
-                    onEditItem={onEditItem}
-                  />
-                );
+                return React.cloneElement(row, { key: data.id, data });
               })
             ) : (
               <TableRow>
@@ -137,11 +128,9 @@ TableContent.propTypes = {
   customPropertiesComparator: PropTypes.func,
   defaultRowsPerPage: PropTypes.number,
   isLoading: PropTypes.bool,
-  onDeleteItem: PropTypes.func,
-  onEditItem: PropTypes.func,
   defaultOrderBy: PropTypes.string,
   defaultOrderDirection: PropTypes.string,
-  Row: PropTypes.elementType.isRequired,
+  row: PropTypes.element,
 };
 
 export default TableContent;

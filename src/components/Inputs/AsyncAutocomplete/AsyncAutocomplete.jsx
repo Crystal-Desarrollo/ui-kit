@@ -29,7 +29,7 @@ const AsyncAutocomplete = props => {
   const [selectedValue, setSelectedValue] = useState(multiple ? [] : '');
   const [debouncedTerm, setDebouncedTerm] = useState('');
 
-  const { isFetching, refetch } = useQuery({
+  const { isFetching, refetch, isFetched } = useQuery({
     queryKey: ['options', debouncedTerm],
     queryFn: () => fetchFunction({ filter: { query: debouncedTerm } }),
     enabled: false,
@@ -93,6 +93,19 @@ const AsyncAutocomplete = props => {
       filtered.push({
         inputValue: inputValue,
         name: `Agregar "${inputValue}"`,
+      });
+    }
+
+    if (
+      !onCreateNew &&
+      noOptions &&
+      inputValue !== '' &&
+      !isFetching &&
+      isFetched
+    ) {
+      filtered.push({
+        inputValue: inputValue,
+        name: `No se encontraron resultados`,
       });
     }
 
