@@ -13,7 +13,7 @@ import {
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { sortOrderEnum } from '../../../utils/Table';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import qs from 'qs';
 
 const PaginatedTableContent = props => {
@@ -27,14 +27,19 @@ const PaginatedTableContent = props => {
     baseParams,
     row,
   } = props;
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [orderBy, setOrderBy] = useState(defaultOrderBy);
-  const [orderDirection, setOrderDirection] = useState(defaultOrderDirection);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [params, setParams] = useState({
-    ...qs.parse(searchParams.toString()),
+    ...baseParams,
     per_page: defaultRowsPerPage,
+    page: 1,
+    sort: {
+      field: defaultOrderBy,
+      direction: defaultOrderDirection,
+    },
+    // Take URL params at the end, so it overrides the default ones
+    ...qs.parse(searchParams.toString()),
   });
-
   const {
     isLoading,
     isFetching,
@@ -43,34 +48,29 @@ const PaginatedTableContent = props => {
     queryKey: [resourceName, params],
     queryFn: () => fetchFunction(params),
     keepPreviousData: true,
+    staleTime: 1000 * 60 * 5,
   });
 
   useEffect(() => {
-    setSearchParams(qs.stringify(params, { skipNulls: true }), {
-      replace: true,
+    // Check encoded URL params against current params, if they are the same, don't push to history
+    if (
+      searchParams.toString() ===
+      qs.stringify(params, {
+        skipNulls: true,
+      })
+    )
+      return;
+
+    // Push no encoded params
+    navigate({
+      search: qs.stringify(params, {
+        skipNulls: true,
+        encodeValuesOnly: true,
+      }),
     });
-  }, [params, setSearchParams]);
+  }, [params, searchParams, navigate]);
 
-  useEffect(() => {
-    setParams(prev => ({
-      ...prev,
-      page: 1,
-      sort: {
-        field: orderBy,
-        direction: orderDirection,
-      },
-    }));
-  }, [orderBy, orderDirection]);
-
-  useEffect(() => {
-    setParams(prev => ({
-      ...prev,
-      ...baseParams,
-      page: 1,
-    }));
-  }, [baseParams]);
-
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (_, newPage) => {
     setParams({ ...params, page: ++newPage });
   };
 
@@ -78,13 +78,20 @@ const PaginatedTableContent = props => {
     setParams({ ...params, per_page: e.target.value, page: 1 });
   };
 
-  const handleSortRequest = (event, property) => {
-    setOrderBy(property);
-    setOrderDirection(
-      orderBy === property && orderDirection === sortOrderEnum.ASC
+  const handleSortRequest = (_, property) => {
+    const direction =
+      searchParams.get('sort[direction]') === sortOrderEnum.ASC
         ? sortOrderEnum.DESC
-        : sortOrderEnum.ASC,
-    );
+        : sortOrderEnum.ASC;
+
+    setParams(prev => ({
+      ...prev,
+      page: 1,
+      sort: {
+        field: property,
+        direction: direction,
+      },
+    }));
   };
 
   return (
@@ -93,15 +100,13 @@ const PaginatedTableContent = props => {
         <Table>
           <TableHeader
             headCells={headCells}
-            orderBy={orderBy}
-            orderDirection={orderDirection}
+            orderBy={searchParams.get('sort[field]')}
+            orderDirection={searchParams.get('sort[direction]')}
             handleSortRequest={handleSortRequest}
           />
           <TableBody>
             {(isLoading || isFetching) && (
-              // 475px is approximately the size of the box with the default of 10 rows per page
-              // We need to force this min height so the box doesn't become small when loading
-              <TableRow sx={{ minHeight: '475px' }}>
+              <TableRow>
                 <TableCell colSpan={headCells.length} align="center">
                   <Loader />
                 </TableCell>
