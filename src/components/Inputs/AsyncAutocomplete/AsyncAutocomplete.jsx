@@ -22,6 +22,7 @@ const AsyncAutocomplete = props => {
     renderLabel,
     fetchFunction,
     multiple,
+    baseParams,
     ...rest
   } = props;
   const { control } = useFormContext();
@@ -30,8 +31,9 @@ const AsyncAutocomplete = props => {
   const [debouncedTerm, setDebouncedTerm] = useState('');
 
   const { isFetching, refetch, isFetched } = useQuery({
-    queryKey: ['options', debouncedTerm],
-    queryFn: () => fetchFunction({ filter: { query: debouncedTerm } }),
+    queryKey: [fetchFunction, debouncedTerm],
+    queryFn: () =>
+      fetchFunction({ filter: { query: debouncedTerm, ...baseParams } }),
     enabled: false,
   });
 
@@ -48,7 +50,7 @@ const AsyncAutocomplete = props => {
     return () => clearTimeout(timer);
   }, [debouncedTerm, refetch]);
 
-  const handleChange = (event, newValue, onChange) => {
+  const handleChange = (_, newValue, onChange) => {
     if (newValue && newValue.inputValue) {
       onCreateNew && onCreateNew(newValue.inputValue);
       return;
@@ -172,6 +174,7 @@ AsyncAutocomplete.propTypes = {
   renderLabel: PropTypes.func,
   fetchFunction: PropTypes.func,
   onChange: PropTypes.func,
+  baseParams: PropTypes.object,
 };
 
 export default AsyncAutocomplete;

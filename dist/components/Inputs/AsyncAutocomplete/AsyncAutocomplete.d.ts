@@ -10,6 +10,7 @@ declare namespace AsyncAutocomplete {
         const renderLabel: PropTypes.Requireable<(...args: any[]) => any>;
         const fetchFunction: PropTypes.Requireable<(...args: any[]) => any>;
         const onChange: PropTypes.Requireable<(...args: any[]) => any>;
+        const baseParams: PropTypes.Requireable<object>;
     }
 }
 import PropTypes from "prop-types";

@@ -71,6 +71,13 @@ const PaginatedTableContent = props => {
     });
   }, [params, searchParams, navigate]);
 
+  useEffect(() => {
+    setParams(prev => ({
+      ...prev,
+      ...baseParams,
+    }));
+  }, [baseParams]);
+
   const handleChangePage = (_, newPage) => {
     setParams({ ...params, page: ++newPage });
   };
