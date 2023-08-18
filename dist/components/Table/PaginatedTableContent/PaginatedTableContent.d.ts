@@ -11,7 +11,8 @@ declare namespace PaginatedTableContent {
         const onDeleteItem: PropTypes.Requireable<(...args: any[]) => any>;
         const onEditItem: PropTypes.Requireable<(...args: any[]) => any>;
         const baseParams: PropTypes.Requireable<object>;
-        const row: PropTypes.Requireable<PropTypes.ReactElementLike>;
+        const row: PropTypes.Validator<PropTypes.ReactElementLike>;
+        const toolbar: PropTypes.Requireable<PropTypes.ReactElementLike>;
     }
 }
 import PropTypes from "prop-types";

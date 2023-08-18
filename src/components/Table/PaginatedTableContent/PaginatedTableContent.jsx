@@ -26,6 +26,7 @@ const PaginatedTableContent = props => {
     defaultRowsPerPage = 10,
     baseParams,
     row,
+    toolbar,
   } = props;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -94,9 +95,14 @@ const PaginatedTableContent = props => {
     }));
   };
 
+  console.log('paginator', paginator);
+
+  const Toolbar = toolbar ? React.cloneElement(toolbar, {}) : null;
+
   return (
     <>
-      <TableContainer sx={{ position: 'relative' }}>
+      <TableContainer sx={{ position: 'relative', overflow: 'visible' }}>
+        {Toolbar}
         <Table>
           <TableHeader
             headCells={headCells}
@@ -165,7 +171,8 @@ PaginatedTableContent.propTypes = {
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
   baseParams: PropTypes.object,
-  row: PropTypes.element,
+  row: PropTypes.element.isRequired,
+  toolbar: PropTypes.element,
 };
 
 export default PaginatedTableContent;
