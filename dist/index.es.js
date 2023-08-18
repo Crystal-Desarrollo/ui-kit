@@ -2585,9 +2585,7 @@ const $l = (e) => {
         direction: k
       }
     }));
-  };
-  console.log("paginator", g);
-  const C = u ? bt.cloneElement(u, {}) : null;
+  }, C = u ? bt.cloneElement(u, { setParams: v }) : null;
   return /* @__PURE__ */ oe(ur, { children: [
     /* @__PURE__ */ oe(Fa, { sx: { position: "relative", overflow: "visible" }, children: [
       C,

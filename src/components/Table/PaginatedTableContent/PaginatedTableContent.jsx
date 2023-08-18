@@ -95,9 +95,7 @@ const PaginatedTableContent = props => {
     }));
   };
 
-  console.log('paginator', paginator);
-
-  const Toolbar = toolbar ? React.cloneElement(toolbar, {}) : null;
+  const Toolbar = toolbar ? React.cloneElement(toolbar, { setParams }) : null;
 
   return (
     <>
