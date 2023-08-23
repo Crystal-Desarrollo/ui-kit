@@ -68,14 +68,23 @@ const AsyncAutocomplete = props => {
     if (option.inputValue) {
       return option.inputValue;
     }
-    return renderLabel ? renderLabel(option) : option.name;
+
+    if (renderLabel) {
+      return renderLabel(option);
+    }
+
+    if (option.dni) {
+      return `${option.name} - ${option.dni}`;
+    }
+
+    return option.name;
   };
 
   const getOption = (props, option) => {
     return (
       // eslint-disable-next-line
       <li {...props} key={option.id ?? props.key}>
-        {renderLabel ? renderLabel(option) : option.name}
+        {getOptionLabel(option)}
       </li>
     );
   };

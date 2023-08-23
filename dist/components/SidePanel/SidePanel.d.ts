@@ -1,16 +1,16 @@
-export function SidePanel({ children, open, onClose, onAccept, onCancel }: {
+export function SidePanel({ title, children, open, onClose, isLoading, }: {
+    title?: string | undefined;
     children: any;
     open: any;
     onClose: any;
-    onAccept: any;
-    onCancel: any;
+    isLoading: any;
 }): import("react/jsx-runtime").JSX.Element;
 export namespace SidePanel {
     namespace propTypes {
+        const title: PropTypes.Requireable<string>;
         const open: PropTypes.Validator<boolean>;
-        const onAccept: PropTypes.Requireable<(...args: any[]) => any>;
         const onClose: PropTypes.Validator<(...args: any[]) => any>;
-        const onCancel: PropTypes.Requireable<(...args: any[]) => any>;
+        const isLoading: PropTypes.Requireable<boolean>;
         const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
     }
 }

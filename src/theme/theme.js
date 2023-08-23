@@ -173,12 +173,6 @@ export const theme = createTheme(
             width: 'max-content',
             textDecoration: 'none',
           },
-          text: {
-            '&:hover': {
-              backgroundColor: 'transparent',
-              color: '#002f4a',
-            },
-          },
         },
       },
       MuiPaper: {
