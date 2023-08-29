@@ -28,6 +28,7 @@ const Select = ({
   const labelId = useId();
   const renderFunction = render || renderItems;
   const { control } = useFormContext();
+  const options = data?.data || data;
 
   return (
     <FormControl fullWidth>
@@ -50,7 +51,7 @@ const Select = ({
             disabled={disabled}
             {...rest}
           >
-            {data.length > 0 && renderFunction(data)}
+            {options.length > 0 && renderFunction(options)}
           </MuiSelect>
         )}
       />
