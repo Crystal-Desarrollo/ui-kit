@@ -5,12 +5,12 @@ declare function TextField({ name, labelText, required, fullWidth, InputProps, I
     labelText?: string | undefined;
     required: any;
     fullWidth?: boolean | undefined;
-    InputProps: any;
-    InputLabelProps: any;
+    InputProps?: null | undefined;
+    InputLabelProps?: null | undefined;
     parentRef: any;
-    multiline: any;
+    multiline?: boolean | undefined;
     rows: any;
-    helperText: any;
+    helperText?: string | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace TextField {
     namespace propTypes {

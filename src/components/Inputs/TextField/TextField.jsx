@@ -7,12 +7,12 @@ const TextField = ({
   labelText = '',
   required,
   fullWidth = true,
-  InputProps,
-  InputLabelProps,
+  InputProps = null,
+  InputLabelProps = null,
   parentRef,
-  multiline,
+  multiline = false,
   rows,
-  helperText,
+  helperText = '',
   ...rest
 }) => {
   const { control } = useFormContext();

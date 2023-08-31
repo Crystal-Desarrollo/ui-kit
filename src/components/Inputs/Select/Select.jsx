@@ -62,7 +62,7 @@ const Select = ({
 };
 
 Select.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
   createOption: PropTypes.func,

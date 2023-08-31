@@ -12,7 +12,7 @@ const SmallButton: React.FC<SmallButtonProps> = ({
   ...rest
 }: SmallButtonProps) => {
   return (
-    <Button sx={{ px: 1, py: 0.5, ...sx }} {...rest}>
+    <Button sx={{ px: 1, py: 1, ...sx }} {...rest}>
       {children}
     </Button>
   );

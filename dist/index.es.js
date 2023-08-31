@@ -1616,12 +1616,12 @@ const Ss = ({
   labelText: t = "",
   required: r,
   fullWidth: n = !0,
-  InputProps: o,
-  InputLabelProps: i,
+  InputProps: o = null,
+  InputLabelProps: i = null,
   parentRef: s,
-  multiline: l,
+  multiline: l = !1,
   rows: c,
-  helperText: u,
+  helperText: u = "",
   ...d
 }) => {
   const { control: f } = zr();
@@ -1765,7 +1765,7 @@ const _a = ({
   ] });
 };
 _a.propTypes = {
-  data: a.array,
+  data: a.oneOfType([a.array, a.object]),
   name: a.string.isRequired,
   labelText: a.string,
   createOption: a.func,
@@ -10093,7 +10093,7 @@ const xg = ({
   children: e,
   sx: t,
   ...r
-}) => /* @__PURE__ */ b(_r, { sx: { px: 1, py: 0.5, ...t }, ...r, children: e });
+}) => /* @__PURE__ */ b(_r, { sx: { px: 1, py: 1, ...t }, ...r, children: e });
 function Cg() {
   const [e, t] = Sa();
   return {

@@ -11,7 +11,7 @@ declare function Select({ data, name, labelText, required, disabled, render, chi
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Select {
     namespace propTypes {
-        const data: PropTypes.Requireable<any[]>;
+        const data: PropTypes.Requireable<object>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;
         const createOption: PropTypes.Requireable<(...args: any[]) => any>;
