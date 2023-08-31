@@ -18,8 +18,13 @@ axiosInstance.interceptors.response.use(
       return;
     }
 
+    if (error.response.status === 503) {
+      window.location = '/';
+      return;
+    }
+
     throw error;
-  }
+  },
 );
 
 export default axiosInstance;

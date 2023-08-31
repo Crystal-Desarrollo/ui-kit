@@ -1,8 +1,4 @@
-import {
-  Checkbox as MuiCheckbox,
-  FormControl,
-  FormControlLabel,
-} from '@mui/material';
+import { Checkbox as MuiCheckbox, FormControlLabel } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
@@ -16,28 +12,26 @@ const Checkbox = ({
   const { control } = useFormContext();
 
   return (
-    <FormControl>
-      <Controller
-        control={control}
-        name={name}
-        defaultValue={defaultChecked}
-        render={({ field }) => (
-          <FormControlLabel
-            labelPlacement={labelPlacement}
-            control={
-              <MuiCheckbox
-                ref={field.ref}
-                onChange={e => field.onChange(e.target.checked)}
-                checked={!!field.value}
-                name={name}
-                {...rest}
-              />
-            }
-            label={labelText}
-          />
-        )}
-      />
-    </FormControl>
+    <Controller
+      control={control}
+      name={name}
+      defaultValue={defaultChecked}
+      render={({ field }) => (
+        <FormControlLabel
+          labelPlacement={labelPlacement}
+          control={
+            <MuiCheckbox
+              ref={field.ref}
+              onChange={e => field.onChange(e.target.checked)}
+              checked={!!field.value}
+              name={name}
+              {...rest}
+            />
+          }
+          label={labelText}
+        />
+      )}
+    />
   );
 };
 
@@ -45,7 +39,6 @@ Checkbox.propTypes = {
   defaultChecked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
-  fullWidth: PropTypes.bool,
   labelPlacement: PropTypes.string,
 };
 

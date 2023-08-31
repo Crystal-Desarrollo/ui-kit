@@ -11,7 +11,6 @@ declare namespace Checkbox {
         const defaultChecked: PropTypes.Requireable<boolean>;
         const name: PropTypes.Validator<string>;
         const labelText: PropTypes.Requireable<string>;
-        const fullWidth: PropTypes.Requireable<boolean>;
         const labelPlacement: PropTypes.Requireable<string>;
     }
 }
