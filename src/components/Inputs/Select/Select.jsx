@@ -23,6 +23,7 @@ const Select = ({
   required = false,
   disabled = false,
   render,
+  children,
   ...rest
 }) => {
   const labelId = useId();
@@ -51,6 +52,7 @@ const Select = ({
             disabled={disabled}
             {...rest}
           >
+            {children}
             {options.length > 0 && renderFunction(options)}
           </MuiSelect>
         )}
@@ -67,6 +69,7 @@ Select.propTypes = {
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   render: PropTypes.func,
+  children: PropTypes.node,
 };
 
 Select.defaultProps = {

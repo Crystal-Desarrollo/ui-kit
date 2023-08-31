@@ -1730,30 +1730,34 @@ const _a = ({
   required: n = !1,
   disabled: o = !1,
   render: i,
-  ...s
+  children: s,
+  ...l
 }) => {
-  const l = Wa(), c = i || Js, { control: u } = zr(), d = (e == null ? void 0 : e.data) || e;
+  const c = Wa(), u = i || Js, { control: d } = zr(), f = (e == null ? void 0 : e.data) || e;
   return /* @__PURE__ */ ae(Wr, { fullWidth: !0, children: [
-    /* @__PURE__ */ b(Ra, { id: l, required: n, disabled: o, children: r }),
+    /* @__PURE__ */ b(Ra, { id: c, required: n, disabled: o, children: r }),
     /* @__PURE__ */ b(
       Rr,
       {
-        control: u,
+        control: d,
         name: t,
-        render: ({ field: { onChange: f, onBlur: m, value: v, name: A, ref: h } }) => /* @__PURE__ */ b(
+        render: ({ field: { onChange: m, onBlur: v, value: A, name: h, ref: g } }) => /* @__PURE__ */ ae(
           is,
           {
             required: n,
-            labelId: l,
+            labelId: c,
             label: r,
-            onBlur: m,
-            onChange: f,
-            inputRef: h,
-            value: v || "",
-            name: A,
+            onBlur: v,
+            onChange: m,
+            inputRef: g,
+            value: A || "",
+            name: h,
             disabled: o,
-            ...s,
-            children: d.length > 0 && c(d)
+            ...l,
+            children: [
+              s,
+              f.length > 0 && u(f)
+            ]
           }
         )
       }
@@ -1767,7 +1771,8 @@ _a.propTypes = {
   createOption: a.func,
   required: a.bool,
   disabled: a.bool,
-  render: a.func
+  render: a.func,
+  children: a.node
 };
 _a.defaultProps = {
   data: []

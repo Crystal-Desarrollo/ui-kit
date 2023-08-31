@@ -1,5 +1,5 @@
 export default Select;
-declare function Select({ data, name, labelText, required, disabled, render, ...rest }: {
+declare function Select({ data, name, labelText, required, disabled, render, children, ...rest }: {
     [x: string]: any;
     data: any;
     name: any;
@@ -7,6 +7,7 @@ declare function Select({ data, name, labelText, required, disabled, render, ...
     required?: boolean | undefined;
     disabled?: boolean | undefined;
     render: any;
+    children: any;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Select {
     namespace propTypes {
@@ -17,6 +18,7 @@ declare namespace Select {
         const required: PropTypes.Requireable<boolean>;
         const disabled: PropTypes.Requireable<boolean>;
         const render: PropTypes.Requireable<(...args: any[]) => any>;
+        const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
     }
     namespace defaultProps {
         const data_1: never[];
