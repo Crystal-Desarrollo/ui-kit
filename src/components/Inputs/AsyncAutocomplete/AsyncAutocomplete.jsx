@@ -25,7 +25,8 @@ const AsyncAutocomplete = props => {
     baseParams,
     ...rest
   } = props;
-  const { control } = useFormContext();
+  const { control, watch } = useFormContext();
+  const value = watch(name);
   const [data, setData] = useState([]);
   const [selectedValue, setSelectedValue] = useState(multiple ? [] : '');
   const [debouncedTerm, setDebouncedTerm] = useState('');
@@ -34,17 +35,22 @@ const AsyncAutocomplete = props => {
     queryKey: [fetchFunction, debouncedTerm],
     queryFn: () =>
       fetchFunction({ filter: { query: debouncedTerm, ...baseParams } }),
-    enabled: false,
+    enabled: !!value,
+    onSuccess: ({ data }) => {
+      if (!data) return;
+      setData(data);
+
+      const foundValue = data.find(x => x.id === value?.id);
+      if (foundValue) {
+        setSelectedValue(foundValue);
+      }
+    },
   });
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (debouncedTerm) {
-        refetch().then(({ data }) => {
-          if (data?.data) {
-            setData(data.data);
-          }
-        });
+        refetch().catch(console.error);
       }
     }, 500);
     return () => clearTimeout(timer);
@@ -65,8 +71,9 @@ const AsyncAutocomplete = props => {
     if (typeof option === 'string') {
       return option;
     }
-    if (option.inputValue) {
-      return option.inputValue;
+
+    if (option.inputValue && onCreateNew) {
+      return `Crear ${option.inputValue}`;
     }
 
     if (renderLabel) {
@@ -153,6 +160,7 @@ const AsyncAutocomplete = props => {
                   required={required}
                   name={name}
                   label={labelText}
+                  helperText="Ingrese al menos 3 caracteres para buscar"
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: (
