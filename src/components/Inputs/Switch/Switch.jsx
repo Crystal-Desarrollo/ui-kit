@@ -9,7 +9,14 @@ import { Controller, useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { useId } from 'react';
 
-const Switch = ({ defaultChecked = false, name, labelText = '', ...rest }) => {
+const Switch = ({
+  defaultChecked = false,
+  name,
+  labelText = '',
+  leftText = 'No',
+  rightText = 'Si',
+  ...rest
+}) => {
   const labelId = useId();
   const { control } = useFormContext();
 
@@ -38,14 +45,14 @@ const Switch = ({ defaultChecked = false, name, labelText = '', ...rest }) => {
             pt={1}
             pl={1}
           >
-            <Typography variant="caption">No</Typography>
+            <Typography variant="caption">{leftText}</Typography>
             <MuiSwitch
               ref={field.ref}
               onChange={e => field.onChange(e.target.checked)}
               checked={!!field.value}
               name={name}
             />
-            <Typography variant="caption">Si</Typography>
+            <Typography variant="caption">{rightText}</Typography>
           </Stack>
         )}
       />
@@ -57,6 +64,8 @@ Switch.propTypes = {
   defaultChecked: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelText: PropTypes.string,
+  leftText: PropTypes.string,
+  rightText: PropTypes.string,
 };
 
 export default Switch;

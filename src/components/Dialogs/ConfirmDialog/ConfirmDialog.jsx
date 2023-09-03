@@ -13,6 +13,8 @@ const ConfirmDialog = ({
   isLoading,
   error,
   children,
+  cancelText,
+  confirmText,
   sx,
 }) => {
   const handleConfirm = () => {
@@ -68,10 +70,10 @@ const ConfirmDialog = ({
           disabled={isLoading}
           sx={{ mr: 2 }}
         >
-          Cancelar
+          {cancelText || 'Cancelar'}
         </Button>
         <Button onClick={handleConfirm} disabled={isLoading}>
-          {error ? 'Reintentar' : 'Confirmar'}
+          {error ? 'Reintentar' : confirmText || 'Confirmar'}
         </Button>
       </Stack>
     </Modal>
@@ -88,6 +90,8 @@ ConfirmDialog.propTypes = {
   error: PropTypes.string,
   children: PropTypes.node,
   sx: PropTypes.object,
+  cancelText: PropTypes.string,
+  confirmText: PropTypes.string,
 };
 
 export default ConfirmDialog;

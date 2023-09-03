@@ -1,5 +1,5 @@
 export default ConfirmDialog;
-declare function ConfirmDialog({ open, title, description, onConfirm, onCancel, isLoading, error, children, sx, }: {
+declare function ConfirmDialog({ open, title, description, onConfirm, onCancel, isLoading, error, children, cancelText, confirmText, sx, }: {
     open: any;
     title: any;
     description: any;
@@ -8,6 +8,8 @@ declare function ConfirmDialog({ open, title, description, onConfirm, onCancel, 
     isLoading: any;
     error: any;
     children: any;
+    cancelText: any;
+    confirmText: any;
     sx: any;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace ConfirmDialog {
@@ -21,6 +23,8 @@ declare namespace ConfirmDialog {
         const error: PropTypes.Requireable<string>;
         const children: PropTypes.Requireable<PropTypes.ReactNodeLike>;
         const sx: PropTypes.Requireable<object>;
+        const cancelText: PropTypes.Requireable<string>;
+        const confirmText: PropTypes.Requireable<string>;
     }
 }
 import PropTypes from "prop-types";

@@ -20,6 +20,7 @@ export { PermissionTab } from './components/Tabs/PermissionTab';
 export { SidePanel } from './components/SidePanel';
 export { Box } from './components/Box';
 export { SmallButton } from './components/Buttons/SmallButton';
+export { ToggleButtonGroup } from './components/Inputs/ToggleButtonGroup';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
