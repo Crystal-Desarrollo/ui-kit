@@ -1719,12 +1719,23 @@ const Js = ({ title: e, renderAside: t }) => /* @__PURE__ */ ae(
   Ge,
   {
     display: "flex",
-    direction: "row",
+    direction: {
+      xs: "column",
+      sm: "row"
+    },
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: 2,
     children: [
-      /* @__PURE__ */ b(Ee, { fontWeight: "bold", fontSize: 24, children: e }),
+      /* @__PURE__ */ b(
+        Ee,
+        {
+          fontWeight: "bold",
+          fontSize: 24,
+          textAlign: "center",
+          sx: { mb: { xs: 2, sm: 0 } },
+          children: e
+        }
+      ),
       t && /* @__PURE__ */ b(Ge, { children: t })
     ]
   }
