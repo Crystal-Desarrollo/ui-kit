@@ -21,6 +21,7 @@ export { SidePanel } from './components/SidePanel';
 export { Box } from './components/Box';
 export { SmallButton } from './components/Buttons/SmallButton';
 export { ToggleButtonGroup } from './components/Inputs/ToggleButtonGroup';
+export { SummaryBox } from './components/SummaryBox';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';

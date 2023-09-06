@@ -22,8 +22,8 @@ const Select = ({
   labelText = '',
   required = false,
   disabled = false,
-  render,
-  children,
+  render = null,
+  children = null,
   ...rest
 }) => {
   const labelId = useId();

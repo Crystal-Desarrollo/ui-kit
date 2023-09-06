@@ -3,13 +3,13 @@ declare function TextField({ name, labelText, required, fullWidth, InputProps, I
     [x: string]: any;
     name: any;
     labelText?: string | undefined;
-    required: any;
+    required?: boolean | undefined;
     fullWidth?: boolean | undefined;
     InputProps?: null | undefined;
     InputLabelProps?: null | undefined;
-    parentRef: any;
+    parentRef?: null | undefined;
     multiline?: boolean | undefined;
-    rows: any;
+    rows?: number | undefined;
     helperText?: string | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace TextField {

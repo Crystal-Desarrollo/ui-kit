@@ -3,7 +3,7 @@ export function SidePanel({ title, children, open, onClose, isLoading, }: {
     children: any;
     open: any;
     onClose: any;
-    isLoading: any;
+    isLoading?: boolean | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 export namespace SidePanel {
     namespace propTypes {

@@ -5,12 +5,12 @@ declare function ConfirmDialog({ open, title, description, onConfirm, onCancel, 
     description: any;
     onConfirm: any;
     onCancel: any;
-    isLoading: any;
-    error: any;
-    children: any;
+    isLoading?: boolean | undefined;
+    error?: null | undefined;
+    children?: null | undefined;
     cancelText: any;
     confirmText: any;
-    sx: any;
+    sx?: null | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace ConfirmDialog {
     namespace propTypes {

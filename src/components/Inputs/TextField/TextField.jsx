@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 const TextField = ({
   name,
   labelText = '',
-  required,
+  required = false,
   fullWidth = true,
   InputProps = null,
   InputLabelProps = null,
-  parentRef,
+  parentRef = null,
   multiline = false,
-  rows,
+  rows = 1,
   helperText = '',
   ...rest
 }) => {

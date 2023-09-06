@@ -10,12 +10,12 @@ const ConfirmDialog = ({
   description,
   onConfirm,
   onCancel,
-  isLoading,
-  error,
-  children,
+  isLoading = false,
+  error = null,
+  children = null,
   cancelText,
   confirmText,
-  sx,
+  sx = null,
 }) => {
   const handleConfirm = () => {
     if (typeof onConfirm === 'function') {

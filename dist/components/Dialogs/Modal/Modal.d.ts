@@ -4,7 +4,7 @@ declare function Modal({ open, onClose, children, sx, disableCloseOnBackdropClic
     open: any;
     onClose: any;
     children: any;
-    sx: any;
+    sx?: null | undefined;
     disableCloseOnBackdropClick?: boolean | undefined;
     isLoading?: boolean | undefined;
 }): import("react/jsx-runtime").JSX.Element;

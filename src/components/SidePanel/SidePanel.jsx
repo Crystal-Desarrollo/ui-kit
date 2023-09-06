@@ -16,7 +16,7 @@ export const SidePanel = ({
   children,
   open,
   onClose,
-  isLoading,
+  isLoading = false,
 }) => {
   const ref = useRef();
   const [isMounted, setIsMounted] = useState(false);
@@ -68,14 +68,12 @@ export const SidePanel = ({
         height="100vh"
         sx={{
           transitionProperty: 'background-color',
-          transitionDuration: '0.8s',
+          transitionDuration: '0.2s',
         }}
         backgroundColor={open ? 'rgba(0,0,0,0.5)' : 'transparent'}
         display={open || isMounted ? 'flex' : 'none'}
         onTransitionEnd={() => {
-          setTimeout(() => {
-            if (!open) setIsMounted(false);
-          }, 500);
+          if (!open) setIsMounted(false);
         }}
         onClick={handleClose}
       >

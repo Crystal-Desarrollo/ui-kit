@@ -6,13 +6,14 @@ import { Box, Container, Toolbar } from '@mui/material';
 import { Loader } from '../../components/Loader';
 import PropTypes from 'prop-types';
 
-export function AuthenticatedLayout({ ItemsList, logout, user }) {
+export function AuthenticatedLayout({ ItemsList, SpeedDial, logout, user }) {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => setOpen(!open);
 
   return (
     <Box sx={{ display: 'flex' }}>
+      {SpeedDial}
       <Header
         logout={logout}
         user={user}
@@ -59,4 +60,5 @@ AuthenticatedLayout.propTypes = {
   logout: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   ItemsList: PropTypes.elementType.isRequired,
+  SpeedDial: PropTypes.node,
 };

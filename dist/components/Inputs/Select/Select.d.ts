@@ -6,8 +6,8 @@ declare function Select({ data, name, labelText, required, disabled, render, chi
     labelText?: string | undefined;
     required?: boolean | undefined;
     disabled?: boolean | undefined;
-    render: any;
-    children: any;
+    render?: null | undefined;
+    children?: null | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace Select {
     namespace propTypes {

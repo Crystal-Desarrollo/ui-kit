@@ -8,7 +8,7 @@ const Modal = ({
   open,
   onClose,
   children,
-  sx,
+  sx = null,
   disableCloseOnBackdropClick = false,
   isLoading = false,
   ...rest
