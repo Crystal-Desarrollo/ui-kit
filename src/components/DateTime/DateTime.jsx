@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types';
-import { format, formatRelative, isDate, isValid } from 'date-fns';
+import { format, formatRelative, isDate, isValid, parse } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 const DateTime = ({ isoDateTimeString, relative = false, showTime = true }) => {
+  const dateFormat =
+    isoDateTimeString.length > 10
+      ? "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS"
+      : 'yyyy-MM-dd';
+
   const date = isDate(isoDateTimeString)
     ? isoDateTimeString
-    : new Date(isoDateTimeString);
+    : parse(isoDateTimeString, dateFormat, new Date());
 
   if (!isValid(date)) return <span>Fecha inválida</span>;
 
