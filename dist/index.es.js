@@ -9877,11 +9877,12 @@ const Om = Hi, xm = Ai(), Cm = (e) => {
     queryKey: [s, N],
     queryFn: () => s({ filter: { query: N, ...c } }),
     enabled: !!m,
-    onSuccess: ({ data: C }) => {
-      if (!C)
+    onSuccess: (C) => {
+      if (Array.isArray(C) && A(C), C.data) {
+        A(C.data);
         return;
-      A(C);
-      const G = C.find(($) => $.id === (m == null ? void 0 : m.id));
+      }
+      const G = v.find(($) => $.id === (m == null ? void 0 : m.id));
       G && g(G);
     }
   });

@@ -36,9 +36,15 @@ const AsyncAutocomplete = props => {
     queryFn: () =>
       fetchFunction({ filter: { query: debouncedTerm, ...baseParams } }),
     enabled: !!value,
-    onSuccess: ({ data }) => {
-      if (!data) return;
-      setData(data);
+    onSuccess: response => {
+      if (Array.isArray(response)) {
+        setData(response);
+      }
+
+      if (response.data) {
+        setData(response.data);
+        return;
+      }
 
       const foundValue = data.find(x => x.id === value?.id);
       if (foundValue) {
