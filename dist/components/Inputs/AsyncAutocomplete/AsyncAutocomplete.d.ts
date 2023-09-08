@@ -11,6 +11,7 @@ declare namespace AsyncAutocomplete {
         const fetchFunction: PropTypes.Requireable<(...args: any[]) => any>;
         const onChange: PropTypes.Requireable<(...args: any[]) => any>;
         const baseParams: PropTypes.Requireable<object>;
+        const showHelperText: PropTypes.Requireable<boolean>;
     }
 }
 import PropTypes from "prop-types";

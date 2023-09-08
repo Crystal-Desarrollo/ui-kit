@@ -1,11 +1,5 @@
-import {
-  CircularProgress,
-  FormControl,
-  TextField as MuiTextField,
-} from '@mui/material';
-import MuiAutocomplete, {
-  createFilterOptions,
-} from '@mui/material/Autocomplete';
+import { CircularProgress, FormControl, TextField as MuiTextField } from '@mui/material';
+import MuiAutocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
@@ -23,44 +17,49 @@ const AsyncAutocomplete = props => {
     fetchFunction,
     multiple,
     baseParams,
+    showHelperText = true,
     ...rest
   } = props;
   const { control, watch } = useFormContext();
   const value = watch(name);
   const [data, setData] = useState([]);
   const [selectedValue, setSelectedValue] = useState(multiple ? [] : '');
+  const [term, setTerm] = useState('');
   const [debouncedTerm, setDebouncedTerm] = useState('');
-
-  const { isFetching, refetch, isFetched } = useQuery({
+  const { isFetching, isFetched } = useQuery({
     queryKey: [fetchFunction, debouncedTerm],
-    queryFn: () =>
-      fetchFunction({ filter: { query: debouncedTerm, ...baseParams } }),
-    enabled: !!value,
+    queryFn: () => fetchFunction({ filter: { query: debouncedTerm, ...baseParams } }),
+    enabled: debouncedTerm.length >= 2,
     onSuccess: response => {
       if (Array.isArray(response)) {
         setData(response);
+        return;
       }
 
       if (response.data) {
         setData(response.data);
-        return;
-      }
-
-      const foundValue = data.find(x => x.id === value?.id);
-      if (foundValue) {
-        setSelectedValue(foundValue);
       }
     },
   });
 
   useEffect(() => {
+    if (value) {
+      setSelectedValue(value);
+    }
+
+    // const foundValue = data.find(x => x.id === value?.id);
+    // if (foundValue) {
+    //   setSelectedValue(foundValue);
+    // }
+  }, [value]);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
-      if (debouncedTerm) {
-        refetch().catch(console.error);
-      }
+      if (term) setDebouncedTerm(term);
     }, 500);
+
     return () => clearTimeout(timer);
-  }, [debouncedTerm, refetch]);
+  }, [term]);
 
   const handleChange = (_, newValue, onChange) => {
     if (newValue && newValue.inputValue) {
@@ -109,24 +108,14 @@ const AsyncAutocomplete = props => {
     const inputValue = String(params.inputValue).trim();
     const noOptions = filtered.length === 0;
 
-    if (
-      onCreateNew &&
-      inputValue !== '' &&
-      (noOptions || !options.find(x => x.name === inputValue))
-    ) {
+    if (onCreateNew && inputValue !== '' && (noOptions || !options.find(x => x.name === inputValue))) {
       filtered.push({
         inputValue: inputValue,
         name: `Agregar "${inputValue}"`,
       });
     }
 
-    if (
-      !onCreateNew &&
-      noOptions &&
-      inputValue !== '' &&
-      !isFetching &&
-      isFetched
-    ) {
+    if (!onCreateNew && noOptions && inputValue !== '' && !isFetching && isFetched) {
       filtered.push({
         inputValue: inputValue,
         name: `No se encontraron resultados`,
@@ -146,10 +135,8 @@ const AsyncAutocomplete = props => {
             <MuiAutocomplete
               multiple={multiple}
               value={selectedValue}
-              onChange={(event, newValue) =>
-                handleChange(event, newValue, onChange)
-              }
-              onKeyDown={event => setDebouncedTerm(event.target.value)}
+              onChange={(event, newValue) => handleChange(event, newValue, onChange)}
+              onKeyDown={event => setTerm(event.target.value)}
               filterOptions={filterOptions}
               options={data}
               selectOnFocus
@@ -166,14 +153,12 @@ const AsyncAutocomplete = props => {
                   required={required}
                   name={name}
                   label={labelText}
-                  helperText="Ingrese al menos 3 caracteres para buscar"
+                  helperText={showHelperText ? 'Ingrese al menos 3 caracteres para buscar' : ''}
                   InputProps={{
                     ...params.InputProps,
                     endAdornment: (
                       <>
-                        {isFetching ? (
-                          <CircularProgress color="inherit" size={20} />
-                        ) : null}
+                        {isFetching ? <CircularProgress color="inherit" size={20} /> : null}
                         {params.InputProps.endAdornment}
                       </>
                     ),
@@ -198,6 +183,7 @@ AsyncAutocomplete.propTypes = {
   fetchFunction: PropTypes.func,
   onChange: PropTypes.func,
   baseParams: PropTypes.object,
+  showHelperText: PropTypes.bool,
 };
 
 export default AsyncAutocomplete;
