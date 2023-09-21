@@ -2062,18 +2062,9 @@ const nl = {
   }, D = (() => {
     const G = r.map((S, Q) => [S, Q]);
     return G.sort((S, Q) => {
-      const B = rl(
-        S[0],
-        Q[0],
-        f,
-        u,
-        s
-      );
+      const B = rl(S[0], Q[0], f, u, s);
       return B !== 0 ? B : S[1] - Q[1];
-    }), G.map((S) => S[0]).slice(
-      v * b,
-      v * b + b
-    );
+    }), G.map((S) => S[0]).slice(v * b, v * b + b);
   })();
   return /* @__PURE__ */ ae(no, { theme: rn, children: [
     /* @__PURE__ */ h(Ha, { children: /* @__PURE__ */ ae(La, { children: [

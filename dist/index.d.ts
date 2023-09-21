@@ -20,7 +20,7 @@ export { SidePanel } from './components/SidePanel';
 export { Box } from './components/Box';
 export { SmallButton } from './components/Buttons/SmallButton';
 export { ToggleButtonGroup } from './components/Inputs/ToggleButtonGroup';
-export { SummaryBox } from './components/SummaryBox';
+export { SummaryBox } from './components/SummaryBox/SummaryBox';
 export { useTabs } from './hooks/useTabs';
 export { theme } from './theme';
 export { GuestLayout } from './layouts/Guest';

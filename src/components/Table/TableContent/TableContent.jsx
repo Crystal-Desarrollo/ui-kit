@@ -12,10 +12,7 @@ import {
 import { TableHeader } from '../TableHeader';
 import { Loader } from '../../Loader';
 import PropTypes from 'prop-types';
-import {
-  genericDescendingComparator,
-  sortOrderEnum,
-} from '../../../utils/Table';
+import { genericDescendingComparator, sortOrderEnum } from '../../../utils/Table';
 import { theme } from '../../../theme';
 
 const TableContent = props => {
@@ -34,13 +31,13 @@ const TableContent = props => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
 
-  const handleRequestSort = (event, property) => {
+  const handleRequestSort = (_, property) => {
     const isAsc = orderBy === property && orderDirection === sortOrderEnum.ASC;
     setOrderDirection(isAsc ? sortOrderEnum.DESC : sortOrderEnum.ASC);
     setOrderBy(property);
   };
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (_, newPage) => {
     setPage(newPage);
   };
 
@@ -53,23 +50,14 @@ const TableContent = props => {
     const stabilizedRowArray = records.map((x, i) => [x, i]);
 
     stabilizedRowArray.sort((a, b) => {
-      const order = genericDescendingComparator(
-        a[0],
-        b[0],
-        orderBy,
-        orderDirection,
-        customPropertiesComparator,
-      );
+      const order = genericDescendingComparator(a[0], b[0], orderBy, orderDirection, customPropertiesComparator);
       if (order !== 0) return order;
       return a[1] - b[1];
     });
 
     const dataArray = stabilizedRowArray.map(x => x[0]);
 
-    return dataArray.slice(
-      page * rowsPerPage,
-      page * rowsPerPage + rowsPerPage,
-    );
+    return dataArray.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
   };
 
   const rows = getRecords();
