@@ -1397,7 +1397,6 @@ const Qs = ({
       open: e,
       onClose: l,
       style: {
-        position: "relative",
         width: "100%",
         height: "100vh",
         display: "flex",
@@ -1407,21 +1406,30 @@ const Qs = ({
       ...s,
       children: /* @__PURE__ */ ae(pr, { children: [
         i && /* @__PURE__ */ h(jt, {}),
-        /* @__PURE__ */ ae(Qs, { sx: n, children: [
-          /* @__PURE__ */ h(
-            Jr,
-            {
-              onClick: l,
-              sx: {
-                position: "absolute",
-                top: 2,
-                right: 2
-              },
-              children: /* @__PURE__ */ h(As, {})
-            }
-          ),
-          r
-        ] })
+        /* @__PURE__ */ ae(
+          Qs,
+          {
+            sx: {
+              position: "relative",
+              ...n
+            },
+            children: [
+              /* @__PURE__ */ h(
+                Jr,
+                {
+                  onClick: l,
+                  sx: {
+                    position: "absolute",
+                    top: 2,
+                    right: 2
+                  },
+                  children: /* @__PURE__ */ h(As, {})
+                }
+              ),
+              r
+            ]
+          }
+        )
       ] })
     }
   );

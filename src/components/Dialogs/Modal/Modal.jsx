@@ -26,7 +26,6 @@ const Modal = ({
       open={open}
       onClose={handleClose}
       style={{
-        position: 'relative',
         width: '100%',
         height: '100vh',
         display: 'flex',
@@ -37,7 +36,12 @@ const Modal = ({
     >
       <>
         {isLoading && <Loader />}
-        <Box sx={sx}>
+        <Box
+          sx={{
+            position: 'relative',
+            ...sx,
+          }}
+        >
           <IconButton
             onClick={handleClose}
             sx={{
