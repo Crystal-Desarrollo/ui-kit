@@ -1397,6 +1397,7 @@ const Qs = ({
       open: e,
       onClose: l,
       style: {
+        position: "relative",
         width: "100%",
         height: "100vh",
         display: "flex",
