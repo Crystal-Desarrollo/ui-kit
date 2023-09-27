@@ -1,6 +1,5 @@
 import { IconButton, Modal as MuiModal } from '@mui/material';
 import PropTypes from 'prop-types';
-import { Loader } from '../../Loader';
 import { Box } from '../../Box';
 import { Close as CloseIcon } from '@mui/icons-material';
 
@@ -35,8 +34,8 @@ const Modal = ({
       {...rest}
     >
       <>
-        {isLoading && <Loader />}
         <Box
+          isLoading={isLoading}
           sx={{
             position: 'relative',
             ...sx,
