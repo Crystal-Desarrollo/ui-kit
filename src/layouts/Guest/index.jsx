@@ -8,11 +8,7 @@ export function GuestLayout() {
   return (
     <ThemeProvider theme={theme}>
       <Grid container height="100dvh" sx={{}}>
-        <Grid
-          item
-          xs={8}
-          sx={{ overflow: 'hidden', display: { xs: 'none', lg: 'flex' } }}
-        >
+        <Grid item xs={8} sx={{ overflow: 'hidden', display: { xs: 'none', lg: 'flex' } }}>
           <img
             src="/login.webp"
             alt="Gente haciendo ejercicio"
@@ -50,13 +46,10 @@ export function GuestLayout() {
               }}
             />
           </Stack>
-          <Paper
-            elevation={0}
-            sx={{ width: '100%', maxWidth: '400px', p: 4, borderRadius: 2 }}
-          >
+          <Paper elevation={0} sx={{ width: '100%', maxWidth: '400px', p: 4, borderRadius: 2 }}>
             <Outlet />
           </Paper>
-          <Copyright sx={{ position: 'absolute', bottom: '0' }} />
+          <Copyright sx={{ position: 'absolute', bottom: '0', w: '100%' }} />
         </Grid>
       </Grid>
     </ThemeProvider>
