@@ -12,12 +12,7 @@ const PageHeader = ({ title, renderAside }) => {
       alignItems="center"
       justifyContent="space-between"
     >
-      <Typography
-        fontWeight="bold"
-        fontSize={24}
-        textAlign="center"
-        sx={{ mb: { xs: 2, sm: 0 } }}
-      >
+      <Typography fontWeight="bold" fontSize={24} textAlign="center" sx={{ mb: { xs: 2, sm: 0 } }}>
         {title}
       </Typography>
       {renderAside && <Stack>{renderAside}</Stack>}

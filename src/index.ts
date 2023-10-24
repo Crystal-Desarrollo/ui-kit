@@ -23,6 +23,7 @@ export { SmallButton } from './components/Buttons/SmallButton';
 export { ToggleButtonGroup } from './components/Inputs/ToggleButtonGroup';
 export { SummaryBox } from './components/SummaryBox/SummaryBox';
 export { Chip } from './components/Chip';
+export { TabsContainer, TabsAside } from './components/Tabs/TabsContainer/TabsContainer';
 
 // Hooks
 export { useTabs } from './hooks/useTabs';
