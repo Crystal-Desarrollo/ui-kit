@@ -1,4 +1,4 @@
-export function SidePanel({ title, children, open, onClose, isLoading, }: {
+export function SidePanel({ title, children, open, onClose, isLoading }: {
     title?: string | undefined;
     children: any;
     open: any;
