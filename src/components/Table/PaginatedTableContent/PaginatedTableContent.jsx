@@ -1,15 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Loader } from '../../Loader';
 import { TableHeader } from '../TableHeader';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TablePagination,
-  TableRow,
-  Typography,
-} from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TablePagination, TableRow, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { sortOrderEnum } from '../../../utils/Table';
@@ -88,9 +80,7 @@ const PaginatedTableContent = props => {
 
   const handleSortRequest = (_, property) => {
     const direction =
-      searchParams.get('sort[direction]') === sortOrderEnum.ASC
-        ? sortOrderEnum.DESC
-        : sortOrderEnum.ASC;
+      searchParams.get('sort[direction]') === sortOrderEnum.ASC ? sortOrderEnum.DESC : sortOrderEnum.ASC;
 
     setParams(prev => ({
       ...prev,
@@ -147,7 +137,7 @@ const PaginatedTableContent = props => {
           from={paginator.from}
           to={paginator.to}
           page={paginator.current_page - 1} // Api goes from 1 to n, but MUI goes from 0 to n-1
-          rowsPerPage={paginator.per_page}
+          rowsPerPage={paginator.per_page ?? defaultRowsPerPage}
           count={paginator.total}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
@@ -168,10 +158,7 @@ PaginatedTableContent.propTypes = {
   fetchFunction: PropTypes.func.isRequired,
   resourceName: PropTypes.string.isRequired,
   defaultOrderBy: PropTypes.string,
-  defaultOrderDirection: PropTypes.oneOf([
-    sortOrderEnum.ASC,
-    sortOrderEnum.DESC,
-  ]),
+  defaultOrderDirection: PropTypes.oneOf([sortOrderEnum.ASC, sortOrderEnum.DESC]),
   defaultRowsPerPage: PropTypes.number,
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
