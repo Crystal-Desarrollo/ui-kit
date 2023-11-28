@@ -8,6 +8,10 @@ import { sortOrderEnum } from '../../../utils/Table';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import qs from 'qs';
 
+function isValidRowsPerPage(rowsPerPage) {
+  return [10, 25, 50, 100].includes(rowsPerPage);
+}
+
 const PaginatedTableContent = props => {
   const {
     headCells,
@@ -137,7 +141,7 @@ const PaginatedTableContent = props => {
           from={paginator.from}
           to={paginator.to}
           page={paginator.current_page - 1} // Api goes from 1 to n, but MUI goes from 0 to n-1
-          rowsPerPage={paginator.per_page ?? defaultRowsPerPage}
+          rowsPerPage={isValidRowsPerPage(paginator.per_page) || defaultRowsPerPage}
           count={paginator.total}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
