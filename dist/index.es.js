@@ -2651,7 +2651,7 @@ const rc = (e) => {
         from: g.from,
         to: g.to,
         page: g.current_page - 1,
-        rowsPerPage: g.per_page,
+        rowsPerPage: g.per_page ?? s,
         count: g.total,
         onPageChange: P,
         onRowsPerPageChange: j,
@@ -2670,10 +2670,7 @@ rc.propTypes = {
   fetchFunction: a.func.isRequired,
   resourceName: a.string.isRequired,
   defaultOrderBy: a.string,
-  defaultOrderDirection: a.oneOf([
-    nt.ASC,
-    nt.DESC
-  ]),
+  defaultOrderDirection: a.oneOf([nt.ASC, nt.DESC]),
   defaultRowsPerPage: a.number,
   onDeleteItem: a.func,
   onEditItem: a.func,
@@ -10240,7 +10237,7 @@ const ng = ({ children: e }) => /* @__PURE__ */ h(
   }
 );
 ng.propTypes = {
-  children: a.element
+  children: a.oneOfType([a.arrayOf(a.node), a.node])
 };
 const Ki = ({ onFilter: e, SidePanel: t, searchPlaceholder: r }) => {
   const n = Es(), o = n.watch("query"), { tab: i } = rg(), [s, l] = Ue(!1), [c, u] = Ue(!1);

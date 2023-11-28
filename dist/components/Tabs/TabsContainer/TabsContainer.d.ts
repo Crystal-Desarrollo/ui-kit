@@ -3,7 +3,7 @@ export function TabsContainer({ children }: {
 }): import("react/jsx-runtime").JSX.Element;
 export namespace TabsContainer {
     namespace propTypes {
-        const children: PropTypes.Requireable<PropTypes.ReactElementLike>;
+        const children: PropTypes.Requireable<NonNullable<PropTypes.ReactNodeLike>>;
     }
 }
 export function TabsAside({ onFilter, SidePanel, searchPlaceholder }: {
