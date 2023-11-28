@@ -2654,7 +2654,7 @@ const nc = (e) => {
         from: g.from,
         to: g.to,
         page: g.current_page - 1,
-        rowsPerPage: rc(g.per_page) || s,
+        rowsPerPage: rc(g.per_page) ? g.per_page : s,
         count: g.total,
         onPageChange: P,
         onRowsPerPageChange: j,

@@ -141,7 +141,7 @@ const PaginatedTableContent = props => {
           from={paginator.from}
           to={paginator.to}
           page={paginator.current_page - 1} // Api goes from 1 to n, but MUI goes from 0 to n-1
-          rowsPerPage={isValidRowsPerPage(paginator.per_page) || defaultRowsPerPage}
+          rowsPerPage={isValidRowsPerPage(paginator.per_page) ? paginator.per_page : defaultRowsPerPage}
           count={paginator.total}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
