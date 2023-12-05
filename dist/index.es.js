@@ -1357,12 +1357,7 @@ const a = /* @__PURE__ */ ks(nl), qt = ht.forwardRef(
   }
 );
 qt.displayName = "Loader";
-const ol = ({
-  sx: e,
-  isLoading: t,
-  children: r,
-  ...n
-}) => /* @__PURE__ */ ae(
+const ol = ({ sx: e, isLoading: t = !1, children: r = null, ...n }) => /* @__PURE__ */ ae(
   dn,
   {
     sx: {
@@ -1722,7 +1717,7 @@ function ll({ money: e, ...t }) {
 ll.propTypes = {
   money: a.number.isRequired
 };
-const cl = ({ title: e, renderAside: t }) => /* @__PURE__ */ ae(
+const cl = ({ title: e, renderAside: t = null }) => /* @__PURE__ */ ae(
   Me,
   {
     display: "flex",

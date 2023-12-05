@@ -1,7 +1,7 @@
 export default PageHeader;
 declare function PageHeader({ title, renderAside }: {
     title: any;
-    renderAside: any;
+    renderAside?: null | undefined;
 }): import("react/jsx-runtime").JSX.Element;
 declare namespace PageHeader {
     namespace propTypes {

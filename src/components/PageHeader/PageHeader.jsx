@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Stack, Typography } from '@mui/material';
 
-const PageHeader = ({ title, renderAside }) => {
+const PageHeader = ({ title, renderAside = null }) => {
   return (
     <Stack
       display="flex"
