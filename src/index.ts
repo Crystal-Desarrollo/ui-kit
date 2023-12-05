@@ -31,10 +31,6 @@ export { useTabs } from './hooks/useTabs';
 // Theme
 export { theme } from './theme';
 
-// Layouts
-export { GuestLayout } from './layouts/Guest';
-export { AuthenticatedLayout } from './layouts/Authenticated';
-
 // Utils
 export { hasPermissions } from './utils/Auth';
 export { sortOrderEnum, genericDescendingComparator } from './utils/Table';
@@ -43,7 +39,3 @@ export { parseBackendErrors } from './utils/Validations';
 // Api
 export { default as AuthApi } from './api/AuthApi';
 export { default as axiosInstance } from './api/apiHelper';
-
-// Pages
-export { Page404 } from './pages/Error/404';
-export { Page401 } from './pages/Error/401';
