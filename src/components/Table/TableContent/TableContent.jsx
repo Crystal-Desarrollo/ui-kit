@@ -83,7 +83,7 @@ const TableContent = props => {
 
             {rows?.length > 0 ? (
               rows.map(data => {
-                return React.cloneElement(row, { key: data.id, data });
+                return React.cloneElement(row, { key: data.key || data.id, data });
               })
             ) : (
               <TableRow>

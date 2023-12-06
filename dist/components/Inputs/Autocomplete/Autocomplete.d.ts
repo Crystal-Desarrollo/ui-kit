@@ -1,6 +1,6 @@
-export default AsyncAutocomplete;
-declare function AsyncAutocomplete(props: any): import("react/jsx-runtime").JSX.Element;
-declare namespace AsyncAutocomplete {
+export default Autocomplete;
+declare function Autocomplete(props: any): import("react/jsx-runtime").JSX.Element;
+declare namespace Autocomplete {
     namespace propTypes {
         const multiple: PropTypes.Requireable<boolean>;
         const labelText: PropTypes.Requireable<string>;
@@ -8,9 +8,9 @@ declare namespace AsyncAutocomplete {
         const required: PropTypes.Requireable<boolean>;
         const onCreateNew: PropTypes.Requireable<(...args: any[]) => any>;
         const renderLabel: PropTypes.Requireable<(...args: any[]) => any>;
-        const fetchFunction: PropTypes.Requireable<(...args: any[]) => any>;
-        const baseParams: PropTypes.Requireable<object>;
+        const onChange: PropTypes.Requireable<(...args: any[]) => any>;
         const showHelperText: PropTypes.Requireable<boolean>;
+        const options: PropTypes.Validator<any[]>;
     }
 }
 import PropTypes from "prop-types";
