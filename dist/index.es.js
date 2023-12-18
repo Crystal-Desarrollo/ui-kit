@@ -10249,7 +10249,7 @@ $i = xo.default = ym;
 function xm(e = 1) {
   const [t, r] = Ma();
   return {
-    tab: Number(t.get("tab")) || e,
+    tab: t.get("tab") ? Number(t.get("tab")) : e,
     onChangeTab: (i, s) => {
       r({ tab: s });
     }
