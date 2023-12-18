@@ -10246,12 +10246,12 @@ var $i = xo.default = void 0, vm = gm(go()), bm = vo, ym = (0, vm.default)(/* @_
   d: "M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
 }), "FilterList");
 $i = xo.default = ym;
-function xm() {
-  const [e, t] = Ma();
+function xm(e = 1) {
+  const [t, r] = Ma();
   return {
-    tab: Number(e.get("tab")) || 1,
-    onChangeTab: (o, i) => {
-      t({ tab: i });
+    tab: Number(t.get("tab")) || e,
+    onChangeTab: (i, s) => {
+      r({ tab: s });
     }
   };
 }

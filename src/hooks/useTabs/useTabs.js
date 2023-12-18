@@ -1,9 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
 
-export default function useTabs() {
+export default function useTabs(defaultTab = 1) {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const tab = Number(searchParams.get('tab')) || 1;
+  const tab = Number(searchParams.get('tab')) || defaultTab;
 
   const handleChange = (event, newValue) => {
     setSearchParams({ tab: newValue });
