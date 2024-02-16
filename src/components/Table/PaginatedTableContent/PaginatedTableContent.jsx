@@ -27,14 +27,14 @@ const PaginatedTableContent = props => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [params, setParams] = useState({
-    ...baseParams,
     per_page: defaultRowsPerPage,
     page: 1,
     sort: {
       field: defaultOrderBy,
       direction: defaultOrderDirection,
     },
-    // Take URL params at the end, so it overrides the default ones
+    // Take URL and Base params at the end, so it overrides the default ones
+    ...baseParams,
     ...qs.parse(searchParams.toString()),
   });
   const {
@@ -50,29 +50,20 @@ const PaginatedTableContent = props => {
 
   useEffect(() => {
     // Check encoded URL params against current params, if they are the same, don't push to history
-    if (
-      searchParams.toString() ===
-      qs.stringify(params, {
-        skipNulls: true,
-      })
-    )
-      return;
-
-    // Push no encoded params
-    navigate({
-      search: qs.stringify(params, {
-        skipNulls: true,
-        encodeValuesOnly: true,
-      }),
+    const filterParamsString = qs.stringify(params, {
+      skipNulls: true,
+      encodeValuesOnly: true,
     });
-  }, [params, searchParams, navigate]);
+    const currentSearchParams = qs.parse(location.search, { ignoreQueryPrefix: true });
+    const currentParamsString = qs.stringify(currentSearchParams, {
+      skipNulls: true,
+      encodeValuesOnly: true,
+    });
 
-  useEffect(() => {
-    setParams(prev => ({
-      ...prev,
-      ...baseParams,
-    }));
-  }, [baseParams]);
+    if (filterParamsString !== currentParamsString) {
+      navigate(`${location.pathname}?${filterParamsString}`, { replace: true });
+    }
+  }, [params]);
 
   const handleChangePage = (_, newPage) => {
     setParams({ ...params, page: ++newPage });
