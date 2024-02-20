@@ -1,9 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select as MuiSelect,
-} from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select as MuiSelect } from '@mui/material';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useId } from 'react';
 import PropTypes from 'prop-types';
@@ -47,7 +42,7 @@ const Select = ({
             onBlur={onBlur}
             onChange={onChange}
             inputRef={ref}
-            value={value || ''}
+            value={value ?? ''}
             name={name}
             disabled={disabled}
             {...rest}

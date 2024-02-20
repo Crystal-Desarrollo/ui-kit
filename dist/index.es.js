@@ -1656,7 +1656,7 @@ const La = ({
           onBlur: v,
           onChange: p,
           inputRef: s || h,
-          value: O || "",
+          value: O ?? "",
           name: g,
           InputProps: o,
           InputLabelProps: i,
@@ -1767,7 +1767,7 @@ const Fa = ({
             onBlur: v,
             onChange: p,
             inputRef: h,
-            value: O || "",
+            value: O ?? "",
             name: g,
             disabled: o,
             ...l,
@@ -10065,7 +10065,7 @@ var bo = mo.default = void 0, im = am(go()), sm = vo, lm = (0, im.default)(/* @_
 bo = mo.default = lm;
 const cm = ({ title: e = "Filtrar", children: t, open: r, onClose: n, isLoading: o = !1 }) => {
   const i = _i(), [s, l] = tt(!1);
-  console.log("SidePanel"), kt(() => {
+  kt(() => {
     function u(d) {
       var m, p, v, O;
       i.current && !i.current.contains(d.target) && !((m = document.querySelector('div[role="presentation"]')) != null && m.contains(d.target)) && !((p = document.querySelector('div[role="dialog"]')) != null && p.contains(d.target)) && !((v = document.querySelector('div[role="alert"]')) != null && v.contains(d.target)) && !((O = document.querySelector('div[role="alertdialog"]')) != null && O.contains(d.target)) && !o && n();

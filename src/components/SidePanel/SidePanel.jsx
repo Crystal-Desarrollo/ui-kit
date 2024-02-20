@@ -7,8 +7,6 @@ export const SidePanel = ({ title = 'Filtrar', children, open, onClose, isLoadin
   const ref = useRef();
   const [isMounted, setIsMounted] = useState(false);
 
-  console.log('SidePanel');
-
   // Detect click outside
   useEffect(() => {
     function handleClickOutside(event) {
