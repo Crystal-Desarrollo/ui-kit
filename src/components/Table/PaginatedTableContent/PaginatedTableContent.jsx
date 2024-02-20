@@ -63,7 +63,14 @@ const PaginatedTableContent = props => {
     if (filterParamsString !== currentParamsString) {
       navigate(`${location.pathname}?${filterParamsString}`, { replace: true });
     }
-  }, [params]);
+  }, [navigate, params]);
+
+  useEffect(() => {
+    setParams(prev => ({
+      ...prev,
+      ...baseParams,
+    }));
+  }, [baseParams]);
 
   const handleChangePage = (_, newPage) => {
     setParams({ ...params, page: ++newPage });
